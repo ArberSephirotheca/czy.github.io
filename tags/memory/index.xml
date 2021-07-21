@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>所有文章 - CZY&#39;s Blog</title>
-        <link>https://arbersephirotheca.github.io/czy.github.io/posts/</link>
-        <description>所有文章 | CZY&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <title>Memory - 标签 - CZY&#39;s Blog</title>
+        <link>https://arbersephirotheca.github.io/czy.github.io/tags/memory/</link>
+        <description>Memory - 标签 - CZY&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/tags/memory/" rel="self" type="application/rss+xml" /><item>
     <title>OS - Memory Alignment</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</link>
     <pubDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</pubDate>

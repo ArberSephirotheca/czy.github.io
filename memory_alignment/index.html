@@ -5,29 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>OS - memory alignment - CZY&#39;s Blog</title><meta name="Description" content="探讨内存对齐"><meta property="og:title" content="OS - memory alignment" />
+        <title>OS - Memory Alignment - CZY&#39;s Blog</title><meta name="Description" content="探讨内存对齐"><meta property="og:title" content="OS - Memory Alignment" />
 <meta property="og:description" content="探讨内存对齐" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" /><meta property="og:image" content="https://arbersephirotheca.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" /><meta property="og:image" content="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/memory_alignment.jpg" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2020-03-04T15:58:26+08:00" />
 <meta property="article:modified_time" content="2020-03-04T15:58:26+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://arbersephirotheca.github.io/logo.png"/>
+<meta name="twitter:image" content="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/memory_alignment.jpg"/>
 
-<meta name="twitter:title" content="OS - memory alignment"/>
+<meta name="twitter:title" content="OS - Memory Alignment"/>
 <meta name="twitter:description" content="探讨内存对齐"/>
 <meta name="application-name" content="CZY">
 <meta name="apple-mobile-web-app-title" content="CZY"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="static/safari-pinned-tab.svg"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "OS - memory alignment",
+        "headline": "OS - Memory Alignment",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/memory_alignment\/"
-        },"genre": "posts","keywords": "OS","wordcount":  5 ,
+        },"genre": "posts","keywords": "OS, Memory","wordcount":  629 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/memory_alignment\/","datePublished": "2020-03-04T15:58:26+08:00","dateModified": "2020-03-04T15:58:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,18 +102,219 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">OS - memory alignment</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-04">2020-03-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">OS - Memory Alignment</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/os/"><i class="far fa-folder fa-fw"></i>OS</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-03-04">2020-03-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 629 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><p>#内存对齐</p>
-</div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#内存条的结构">内存条的结构</a></li>
+    <li><a href="#结构的优点">结构的优点</a></li>
+    <li><a href="#结构的缺陷">结构的缺陷</a></li>
+    <li><a href="#解决方案">解决方案</a></li>
+    <li><a href="#更优秀的解决方案">更优秀的解决方案</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><strong>这篇文章讨论了内存对齐的原理</strong></p>
+<h2 id="内存条的结构">内存条的结构</h2>
+<ul>
+<li>每个内存条一面是一个 Rank
+<ul>
+<li>每面Rank一般包含8个 Chips
+<ul>
+<li>每个Chips包含8个 Banks</li>
+<li>计算机通过选择Banks的 <strong>row</strong> 和 <strong>col</strong> 来定位地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="结构的优点">结构的优点</h2>
+<ul>
+<li>通过对8个 Chips 进行<strong><ruby>并行<rt>parallelism</rt></ruby></strong>操作，提高了内存访问效率</li>
+</ul>
+<h2 id="结构的缺陷">结构的缺陷</h2>
+<ul>
+<li>虽然 <strong><ruby>8 byte<rt>8 字节</rt></ruby></strong> 物理上不是连续存在，但共用8个Chips的同一个地址</li>
+<li>这也导致了address只能是<strong><ruby>8的倍数<rt>%8=0</rt></ruby></strong></li>
+</ul>
+<h2 id="解决方案">解决方案</h2>
+<ul>
+<li>CPU分两次读
+<ul>
+<li>如果当用户想要从不属于Chips(这里是8)<strong>倍数</strong>的地址开始读取数据，CPU会读取<strong><ruby>前后8个bytes的地址<rt>16字节</rt></ruby></strong>来获得数据</li>
+<li>但这也导致了性能的降低</li>
+</ul>
+</li>
+</ul>
+<h2 id="更优秀的解决方案">更优秀的解决方案</h2>
+<ul>
+<li>内存对齐
+<ul>
+<li>为了保持高效的运行，编译器会把<sup>不同类型</sup>/<sub>不同大小</sub>的数据安排到合适的地点并占用合适的长度</li>
+</ul>
+<ul>
+<li>内存对齐要求数据储存的地址是对其边界的<strong>倍数</strong>
+<ul>
+<li><code>int32</code> 的对齐边界是 <strong><ruby>4 bytes<rt>4 字节</rt></ruby></strong>，所以它所在的地址一定是 <strong><ruby><strong>4</strong> 的倍数<rt>%4=0</rt></ruby></strong></li>
+<li><code>int16</code> 的对齐边界是 <strong><ruby>2 bytes<rt>2 字节</rt></ruby></strong>，所以它所在的地址一定是 <strong><ruby><strong>2</strong> 的倍数<rt>%2=0</rt></ruby></strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>举例
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">type</span> <span class="nx">a</span> <span class="kd">struct</span><span class="p">{</span>
+    <span class="nx">A</span> <span class="kt">int8</span>
+    <span class="nx">B</span> <span class="kt">int16</span>
+    <span class="nx">C</span> <span class="kt">int32</span>
+    <span class="nx">D</span> <span class="kt">int64</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">b</span> <span class="kd">struct</span><span class="p">{</span>
+    <span class="nx">B</span> <span class="kt">int16</span>
+    <span class="nx">A</span> <span class="kt">int8</span>
+    <span class="nx">C</span> <span class="kt">int32</span>
+    <span class="nx">D</span> <span class="kt">int64</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>虽然上面2个<code>struct</code>内容相同，但<code>data type</code>的排序却会导致<strong><ruby><strong>后者</strong><rt>b struct</rt></ruby></strong>占用较多的字节</p>
+<ul>
+<li>
+<p>第一种排序占用 <strong><ruby>16 bytes<rt>16 字节</rt></ruby></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">0x00</th>
+<th style="text-align:center">0x01</th>
+<th style="text-align:center">0x02</th>
+<th style="text-align:center">0x03</th>
+<th style="text-align:center">0x04</th>
+<th style="text-align:center">0x05</th>
+<th style="text-align:center">0x06</th>
+<th style="text-align:center">0x07</th>
+<th style="text-align:center">0x08</th>
+<th style="text-align:center">0x09</th>
+<th style="text-align:center">0xa0</th>
+<th style="text-align:center">0xa1</th>
+<th style="text-align:center">0xa2</th>
+<th style="text-align:center">0xa3</th>
+<th style="text-align:center">0xa4</th>
+<th style="text-align:center">0xa5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>第二种排序占用 <strong><ruby>24 bytes<rt>24 字节</rt></ruby></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">0x00</th>
+<th style="text-align:center">0x01</th>
+<th style="text-align:center">0x02</th>
+<th style="text-align:center">0x03</th>
+<th style="text-align:center">0x04</th>
+<th style="text-align:center">0x05</th>
+<th style="text-align:center">0x06</th>
+<th style="text-align:center">0x07</th>
+<th style="text-align:center">0x08</th>
+<th style="text-align:center">0x09</th>
+<th style="text-align:center">0xa0</th>
+<th style="text-align:center">0xa1</th>
+<th style="text-align:center">0xa2</th>
+<th style="text-align:center">0xa3</th>
+<th style="text-align:center">0xa4</th>
+<th style="text-align:center">0xa5</th>
+<th style="text-align:center">0xa6</th>
+<th style="text-align:center">0xa7</th>
+<th style="text-align:center">0xa8</th>
+<th style="text-align:center">0xa9</th>
+<th style="text-align:center">0xb0</th>
+<th style="text-align:center">0xb1</th>
+<th style="text-align:center">0xb2</th>
+<th style="text-align:center">0xb3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">32</td>
+<td style="text-align:center">32</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li><code>Golang</code> 语言下可以用 <code>unsafe.sizeof</code> 来查看 <code>struct</code> 的大小
+<br/><br/>
+<br/><br/>
+<em><strong>Reference:</strong></em> <em><a href="https://www.bilibili.com/video/BV1hv411x7we?p=3" target="_blank" rel="noopener noreffer">https://www.bilibili.com/video/BV1hv411x7we?p=3</a></em></li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -126,13 +327,13 @@
                             <a class="link-to-markdown" href="../memory_alignment/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - memory alignment" data-via="xxxx" data-hashtags="OS"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-hashtag="OS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - memory alignment" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - memory alignment"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - memory alignment"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - memory alignment" data-description="探讨内存对齐"><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - memory alignment" data-description="探讨内存对齐"><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - memory alignment"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - Memory Alignment" data-via="xxxx" data-hashtags="OS,Memory"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-hashtag="OS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - Memory Alignment" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - Memory Alignment"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - Memory Alignment"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - Memory Alignment" data-description="探讨内存对齐"><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - Memory Alignment" data-description="探讨内存对齐"><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://arbersephirotheca.github.io/czy.github.io/memory_alignment/" data-title="OS - Memory Alignment"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/os/">OS</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/os/">OS</a>,&nbsp;<a href="../tags/memory/">Memory</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../">主页</a></span>
         </section>

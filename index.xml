@@ -6,11 +6,11 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</lastBuildDate>
             <atom:link href="https://arbersephirotheca.github.io/czy.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>OS - memory alignment</title>
+    <title>OS - Memory Alignment</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</link>
     <pubDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</guid>
-    <description><![CDATA[#内存对齐]]></description>
+    <description><![CDATA[<p><strong>这篇文章讨论了内存对齐的原理</strong></p>]]></description>
 </item></channel>
 </rss>
