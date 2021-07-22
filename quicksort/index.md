@@ -11,35 +11,6 @@
 4. 对于pviot**右侧**的数组进行**第二步**的步骤.
 5. 重复以上步骤.
 
-## 时间复杂度
-* Average Case: **O(nlogn)**
-* Worst Case: **O(n<sup>2</sup>)** 
-
-## 基准的选择
-  * 固定位置
-      * 通常选择[首个]/[最后]元素作为基准
-  * 三数取中(medium of three)
-      * 取待排序数组中间，首部和尾部中**第二大**的元素作为基准
-      * 实现:
-          ```cpp
-          void getmid(vecotr<int> arr, int l, int r){
-            int mid = l + (r-l)/2;
-            int index = 0;
-            if(arr[l] <= arr[mid] && arr[l] >= arr[r])
-              index = l;
-            else if(arr[r] <= arr[mid] && arr[r] >= arr[l])
-              index = r;
-            else
-              index = mid;
-            //put medium value at the front
-            swap(arr[l],arr[mid]);
-          }
-          ```
-
-## 缺点
-* 如果初始序列基本为有序，则时间复杂度属于**Worst Case**.
-* **Pivot**的选取极大影响了快排的效率
-
 ## 实现
 ```cpp
 int partitions(vector<int>&arr, int l, int r){
@@ -69,3 +40,33 @@ void quicksort(vector<int>&arr, int l, int r){
   }
 }
 ```
+
+## 时间复杂度
+* Average Case: **O(nlogn)**
+* Worst Case: **O(n<sup>2</sup>)** 
+
+## 基准的选择
+  * 固定位置
+      * 通常选择[首个]/[最后]元素作为基准
+  * 三数取中(medium of three)
+      * 取待排序数组中间，首部和尾部中**第二大**的元素作为基准
+      * 实现:
+          ```cpp
+          void getmid(vecotr<int> arr, int l, int r){
+            int mid = l + (r-l)/2;
+            int index = 0;
+            if(arr[l] <= arr[mid] && arr[l] >= arr[r])
+              index = l;
+            else if(arr[r] <= arr[mid] && arr[r] >= arr[l])
+              index = r;
+            else
+              index = mid;
+            //put medium value at the front
+            swap(arr[l],arr[mid]);
+          }
+          ```
+
+## 缺点
+* 如果初始序列基本为有序，则时间复杂度属于**Worst Case**.
+* **Pivot**的选取极大影响了快排的效率
+

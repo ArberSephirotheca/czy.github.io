@@ -3,10 +3,19 @@
         <title>Algorithm - 分类 - War.....War Never Changes</title>
         <link>https://arbersephirotheca.github.io/czy.github.io/categories/algorithm/</link>
         <description>Algorithm - 分类 - War.....War Never Changes</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 22 Jul 2021 12:55:31 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/categories/algorithm/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 27 Mar 2020 16:38:01 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/categories/algorithm/" rel="self" type="application/rss+xml" /><item>
+    <title>Algorithm - MergeSort</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/mergesort/</link>
+    <pubDate>Fri, 27 Mar 2020 16:38:01 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/mergesort/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/mergesort.jpg" referrerpolicy="no-referrer">
+            </div><p><strong>这篇文章讨论了归并排序的原理</strong></p>]]></description>
+</item><item>
     <title>Algorithm - QuickSort</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/quicksort/</link>
-    <pubDate>Thu, 22 Jul 2021 12:55:31 &#43;0800</pubDate>
+    <pubDate>Sat, 22 Feb 2020 12:55:31 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/quicksort/</guid>
     <description><![CDATA[<div class="featured-image">
