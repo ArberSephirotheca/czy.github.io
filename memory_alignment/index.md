@@ -39,8 +39,8 @@
     type b struct{
         B int16
         A int8
-        C int32
-        D int64
+        C int64
+        D int32
     }
     ```
     虽然上面2个`struct`内容相同，但`data type`的排序却会导致[**后者**]^(b struct)占用较多的字节.
