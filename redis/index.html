@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/redis\/"
-        },"genre": "posts","keywords": "Database, NoSQL","wordcount":  339 ,
+        },"genre": "posts","keywords": "Database, NoSQL","wordcount":  1198 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/redis\/","datePublished": "2021-04-22T17:04:33+08:00","dateModified": "2021-04-22T17:04:33+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Redis</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/database/"><i class="far fa-folder fa-fw"></i>Database</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-22">2021-04-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 339 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-04-22">2021-04-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1198 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="../svg/loading.min.svg"
@@ -125,6 +125,7 @@
     <li><a href="#特点">特点</a></li>
     <li><a href="#集群">集群</a></li>
     <li><a href="#同步">同步</a></li>
+    <li><a href="#持久化">持久化</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>这篇文章讨论了redis的基础数据结构和特点</strong></p>
@@ -149,11 +150,11 @@
 <ul>
 <li>字典
 <ul>
-<li>存放key-value的数据结构</li>
-<li>使用哈希表作为底层</li>
-<li>用拉链法(每个bucket有一个链表)来解决哈希冲突</li>
-<li>包含<strong>2</strong>个哈希表，是为了在扩容时，把rehash过后的key-value放到另外一个字典上，完成交换</li>
-<li>rehash的过程是<strong>渐进式</strong>的，每次CRUD的时候，都会顺带做一点rehash的工作</li>
+<li>存放key-value的数据结构.</li>
+<li>使用哈希表作为底层.</li>
+<li>用拉链法(每个bucket有一个链表)来解决哈希冲突.</li>
+<li>包含<strong>2</strong>个哈希表，是为了在扩容时，把rehash过后的key-value放到另外一个字典上，完成交换.</li>
+<li>rehash的过程是<strong>渐进式</strong>的，每次CRUD的时候，都会顺带做一点rehash的工作.</li>
 </ul>
 </li>
 <li>跳跃表
@@ -168,21 +169,112 @@
     </a><figcaption class="image-caption">Skip List</figcaption>
     </figure>
 <ul>
-<li>Zest 的底层实现</li>
-<li>基于多指针有序列表</li>
-<li>在查找时，从上层指针开始查找，找到对应的区间之后再到下一层去查找。</li>
-<li>插入速度快，相比起红黑树等不需要旋转，支持无锁操作</li>
-<li>插入，删除，搜索都是 <strong>O(logn)</strong></li>
+<li>Zest 的底层实现.</li>
+<li>基于多指针有序列表.</li>
+<li>在查找时，从上层指针开始查找，找到对应的区间之后再到下一层去查找.</li>
+<li>插入速度快，相比起红黑树等不需要旋转，支持无锁操作.</li>
+<li>插入，删除，搜索都是 <strong>O(logn)</strong>.</li>
 </ul>
 </li>
 </ul>
 <h2 id="特点">特点</h2>
 <ul>
-<li>速度快，因为数据存在内存中，并且底层kv使用hashmap来实现，查找和操作都是O(1)</li>
-<li>单线程， 不用担心 <strong>Race Condition</strong></li>
+<li>速度快，因为数据存在内存中，并且底层kv使用hashmap来实现，查找和操作都是O(1).</li>
+<li>单线程， 不用担心 <strong>Race Condition</strong>.</li>
 </ul>
 <h2 id="集群">集群</h2>
-<h2 id="同步">同步</h2></div><div class="post-footer" id="post-footer">
+<ul>
+<li>主从复制
+<figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/master_slave.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/master_slave.png" data-sub-html="<h2>master-slave replication</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/master_slave.png"
+            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/master_slave.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/master_slave.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/master_slave.png 2x"
+            data-sizes="auto"
+            alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/master_slave.png" />
+    </a><figcaption class="image-caption">master-slave replication</figcaption>
+    </figure>
+<ul>
+<li>redis 提供了 <strong><ruby>复制<rt>replication</rt></ruby></strong>功能，可以实现当<strong>master</strong>数据库更新后，自动将更新的数据同步到其他<strong>slaves</strong>数据库中.</li>
+<li><strong>master</strong>数据库可以进行<strong>读写</strong>操作.</li>
+<li><strong>slave</strong>数据库只能进行<strong>读</strong>操作.</li>
+<li>优点:
+<ul>
+<li>容灾恢复.</li>
+<li>读写分离，分担<strong>master</strong>读写的压力.</li>
+<li>在同步期间，<strong>master</strong>和<strong>slave</strong>服务器是非阻塞(non-blocking)，客户端可以操作.</li>
+</ul>
+</li>
+<li>缺点:
+<ul>
+<li>Redis不具备自动容错和恢复功能，主机从机的宕机都会导致前端部分读写请求失败.</li>
+<li>Redis 较难支持在线扩容，在集群容量达到上限时在线扩容会变得很复杂.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><ruby>哨兵<rt>Sentinel</rt></ruby></strong>模式
+<figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/sentinel.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/sentinel.png" data-sub-html="<h2>sentinel replication</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/sentinel.png"
+            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/sentinel.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/sentinel.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/sentinel.png 2x"
+            data-sizes="auto"
+            alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/sentinel.png" />
+    </a><figcaption class="image-caption">sentinel replication</figcaption>
+    </figure>
+<ul>
+<li>哨兵是独立进程，通过向redis服务器发送request并等待response来监控运行多个redis实例.</li>
+<li>当哨兵检测到<strong>master</strong>服务器宕机，就会将其中一个<strong>slave</strong>服务器切换成<strong>master</strong>并通知其他服务器.</li>
+<li>优点:
+<ul>
+<li>主从可以自动切换，系统更健壮，可用性更高.</li>
+</ul>
+</li>
+<li>缺点:
+<ul>
+<li>Redis较难支持在线扩容，在集群容量达到上限时在线扩容会变得很复杂.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong><ruby>集群<rt>Cluster</rt></ruby></strong>模式
+<figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/cluster.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/cluster.png" data-sub-html="<h2>cluster</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/cluster.png"
+            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/cluster.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/cluster.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/cluster.png 2x"
+            data-sizes="auto"
+            alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/cluster.png" />
+    </a><figcaption class="image-caption">cluster</figcaption>
+    </figure>
+<ul>
+<li>在每台redis节点上储存<strong>不同</strong>的数据.</li>
+<li>服务器之间互相连接，一个服务器可以访问任意一个服务器.</li>
+<li>采用<strong>hash slot</strong>来分配节点地址.
+<ul>
+<li>redis cluster 有16384个hash slot, 通过对每个key进行 mod 16384来决定节点的位置.</li>
+<li>每个节点负责一部分的hash slot.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="同步">同步</h2>
+<ul>
+<li><strong>slave</strong>服务器向<strong>master</strong>服务器发送sync命令.</li>
+<li>收到sync命令后，<strong>master</strong>服务器执行bgsave命令，用来生成rdb文件，并在一个缓冲区中记录现在开始执行的写命.</li>
+<li>bgsave执行完后，发送给<strong>slave</strong>服务器使其更新数据.</li>
+<li><strong>master</strong>服务器再将缓冲区记录的写命令发送给从服务器，<strong>slave</strong>服务器执行完这些写命令后，此时的数据库状态便和<strong>master</strong>服务器一致了.</li>
+</ul>
+<h2 id="持久化">持久化</h2>
+<ul>
+<li>redis因为是内存型rdb，为了保证数据不丢失，会在一定频率下把内存数据保存到硬盘当中.</li>
+<li>可用在AOF文件写指令来设置保存数据的频率(etc. always, everysec, no).</li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
