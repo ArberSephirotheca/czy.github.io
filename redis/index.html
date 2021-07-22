@@ -123,7 +123,8 @@
     <li><a href="#数据类型">数据类型</a></li>
     <li><a href="#数据结构">数据结构</a></li>
     <li><a href="#特点">特点</a></li>
-    <li><a href="#主从配置">主从配置</a></li>
+    <li><a href="#集群">集群</a></li>
+    <li><a href="#同步">同步</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>这篇文章讨论了redis的基础数据结构和特点</strong></p>
@@ -156,14 +157,14 @@
 </ul>
 </li>
 <li>跳跃表
-<figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/tree/master/redis/skiplist.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/tree/master/redis/skiplist.png" data-sub-html="<h2>Skip List</h2><p>Alt text</p>">
+<figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/skiplist.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/skiplist.png" data-sub-html="<h2>Skip List</h2><p>Alt text</p>">
         <img
             class="lazyload"
             src="../svg/loading.min.svg"
-            data-src="https://github.com/ArberSephirotheca/czy.github.io/tree/master/redis/skiplist.png"
-            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/tree/master/redis/skiplist.png, https://github.com/ArberSephirotheca/czy.github.io/tree/master/redis/skiplist.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/tree/master/redis/skiplist.png 2x"
+            data-src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/skiplist.png"
+            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/skiplist.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/skiplist.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/skiplist.png 2x"
             data-sizes="auto"
-            alt="https://github.com/ArberSephirotheca/czy.github.io/tree/master/redis/skiplist.png" />
+            alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/redis/skiplist.png" />
     </a><figcaption class="image-caption">Skip List</figcaption>
     </figure>
 <ul>
@@ -180,7 +181,8 @@
 <li>速度快，因为数据存在内存中，并且底层kv使用hashmap来实现，查找和操作都是O(1)</li>
 <li>单线程， 不用担心 <strong>Race Condition</strong></li>
 </ul>
-<h2 id="主从配置">主从配置</h2></div><div class="post-footer" id="post-footer">
+<h2 id="集群">集群</h2>
+<h2 id="同步">同步</h2></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
