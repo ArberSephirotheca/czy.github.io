@@ -47,7 +47,7 @@ void quicksort(vector<int>&arr, int l, int r){
 
 ## 基准的选择
   * 固定位置
-      * 通常选择[首个]/[最后]元素作为基准
+      * 通常选择[首个]/[最后]元素作为基准.
   * 三数取中(medium of three)
       * 取待排序数组中间，首部和尾部中**第二大**的元素作为基准
       * 实现:
@@ -68,5 +68,5 @@ void quicksort(vector<int>&arr, int l, int r){
 
 ## 缺点
 * 如果初始序列基本为有序，则时间复杂度属于**Worst Case**.
-* **Pivot**的选取极大影响了快排的效率
+* **Pivot**的选取极大影响了快排的效率.
 
