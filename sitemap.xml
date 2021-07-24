@@ -2,14 +2,18 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://arbersephirotheca.github.io/czy.github.io/categories/</loc><lastmod>2021-05-22T16:38:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://arbersephirotheca.github.io/czy.github.io/categories/</loc><lastmod>2021-07-23T21:10:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://arbersephirotheca.github.io/czy.github.io/tags/container/</loc><lastmod>2021-07-23T21:10:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://arbersephirotheca.github.io/czy.github.io/categories/docker/</loc><lastmod>2021-07-23T21:10:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://arbersephirotheca.github.io/czy.github.io/docker/</loc><lastmod>2021-07-23T21:10:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://arbersephirotheca.github.io/czy.github.io/tags/golang/</loc><lastmod>2021-07-23T21:10:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://arbersephirotheca.github.io/czy.github.io/posts/</loc><lastmod>2021-07-23T21:10:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://arbersephirotheca.github.io/czy.github.io/tags/</loc><lastmod>2021-07-23T21:10:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://arbersephirotheca.github.io/czy.github.io/</loc><lastmod>2021-07-23T21:10:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://arbersephirotheca.github.io/czy.github.io/tags/database/</loc><lastmod>2021-04-22T17:04:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://arbersephirotheca.github.io/czy.github.io/categories/database/</loc><lastmod>2021-04-22T17:04:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://arbersephirotheca.github.io/czy.github.io/tags/nosql/</loc><lastmod>2021-04-22T17:04:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://arbersephirotheca.github.io/czy.github.io/posts/</loc><lastmod>2021-05-22T16:38:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://arbersephirotheca.github.io/czy.github.io/redis/</loc><lastmod>2021-04-22T17:04:33&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://arbersephirotheca.github.io/czy.github.io/tags/</loc><lastmod>2021-05-22T16:38:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://arbersephirotheca.github.io/czy.github.io/</loc><lastmod>2021-05-22T16:38:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://arbersephirotheca.github.io/czy.github.io/categories/algorithm/</loc><lastmod>2021-05-22T16:38:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://arbersephirotheca.github.io/czy.github.io/mergesort/</loc><lastmod>2021-05-22T16:38:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://arbersephirotheca.github.io/czy.github.io/tags/sort/</loc><lastmod>2021-05-22T16:38:01&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Docker - 分类 - War.....War Never Changes</title>
+        <link>https://arbersephirotheca.github.io/czy.github.io/categories/docker/</link>
+        <description>Docker - 分类 - War.....War Never Changes</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 23 Jul 2021 21:10:39 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/categories/docker/" rel="self" type="application/rss+xml" /><item>
+    <title>Docker</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/docker/</link>
+    <pubDate>Fri, 23 Jul 2021 21:10:39 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/docker/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/docker.png" referrerpolicy="no-referrer">
+            </div><p><strong>这篇文章讨论了Docker的原理和基础用法</strong></p>]]></description>
+</item></channel>
+</rss>
