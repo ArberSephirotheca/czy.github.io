@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/docker\/"
-        },"genre": "posts","keywords": "Container, Golang","wordcount":  675 ,
+        },"genre": "posts","keywords": "Container, Golang","wordcount":  1243 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/docker\/","datePublished": "2021-07-23T21:10:39+08:00","dateModified": "2021-07-23T21:10:39+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Docker</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/docker/"><i class="far fa-folder fa-fw"></i>Docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 675 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-23">2021-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1243 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="../svg/loading.min.svg"
@@ -125,7 +125,9 @@
     <li><a href="#容器">容器</a></li>
     <li><a href="#docker-image">Docker Image</a></li>
     <li><a href="#docker-volume">Docker Volume</a></li>
+    <li><a href="#docker-networking">Docker Networking</a></li>
     <li><a href="#常用命令">常用命令</a></li>
+    <li><a href="#常用参数">常用参数</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>这篇文章讨论了Docker的原理和基础用法</strong></p>
@@ -203,7 +205,17 @@
 <h2 id="docker-image">Docker Image</h2>
 <ul>
 <li>用户可以通过 <code>docker pull image name:version</code> 来获得 <strong>DockerFile</strong>文件.</li>
+<li>用户可以通过 <code>docker build &lt;path&gt;</code> 来创建 docker image.</li>
+<li>DockerFile:
+<ul>
 <li>DockerFile描述了Docker Image里面的环境和应用.</li>
+<li><code>ADD</code> - add files from local to containers.</li>
+<li><code>FROM</code> - select a base image to build the new image on the top of.</li>
+<li><code>CMD</code> - command run when container starts.</li>
+<li><code>RUN</code> - Specify commands to make changes to your Image and subsequently the Containers started from this Image.
+This includes updating packages, installing software, adding users, creating an initial database, setting up certificates, etc.</li>
+</ul>
+</li>
 <li>Docker Image layer:
 <figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/layer.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/layer.png" data-sub-html="<h2>Docker Image Layer</h2><p>Alt text</p>">
         <img
@@ -226,17 +238,88 @@
 </li>
 </ul>
 <h2 id="docker-volume">Docker Volume</h2>
+<p><figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/volume.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/volume.png" data-sub-html="<h2>Docker Volume</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/volume.png"
+            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/volume.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/volume.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/volume.png 2x"
+            data-sizes="auto"
+            alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/volume.png" />
+    </a><figcaption class="image-caption">Docker Volume</figcaption>
+    </figure></p>
+<ul>
+<li>
+<p>Bind mounts:
+使用方法:</p>
+<ul>
+<li><code>docker run -v &lt;HOST_PATH&gt;:&lt;CONTAINER_PATH&gt; --name xxxx xxxx:version</code></li>
+<li>volume会把 <code>&lt;HOST_PATH&gt;</code>的内容映射到container里面的<code>&lt;Container_PATH&gt;</code> 当中.</li>
+<li>作用:
+<ul>
+<li>对于需要不停修改的image， docker volume 让你不用重新修改DockerFile/build image, 只需要修改 docker volume/container里面的文件.</li>
+<li>使container的数据保存在 <code>var/lib/docker/volume</code> 下，即使container被删除，依旧有效，保持<strong>数据持久化</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>volume:</p>
+<ul>
+<li>使用方法:
+<ul>
+<li><code>docker volume create my-vol</code>- Create a volume.</li>
+<li><code>docker volume inspect my-vol</code>- Inspect a volume.</li>
+<li><code>docker volume rm my-vol</code> - Remove a volume.</li>
+<li><code>docker run -v &lt;DOCKER_VOL&gt;:&lt;CONTAINER_PATH&gt; --name xxxx xxxx:version</code></li>
+</ul>
+</li>
+<li>作用:
+<ul>
+<li>使container之间可以<strong>共享</strong>volume的内容.</li>
+<li>保持<strong>数据持久化</strong>，只有volume被删除后内容才会消失.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>tmpfs(temporary file system):</p>
+<ul>
+<li>只适用于<strong>linux</strong>.</li>
+<li>会分配一块<strong>内存空间</strong>，存放特定目录底下的容器档案资料.</li>
+<li>使用<code>stop</code>指令停用容器的时候，内存空间会被解放.</li>
+<li>使用方法:
+<ul>
+<li><code>docker run --name &lt;name&gt; --tmpfs &lt;CONTAINER_PATH&gt; xxxx:version</code></li>
+</ul>
+</li>
+<li>作用:
+<ul>
+<li>放在内存里，速度比放在disk里面更快.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="docker-networking">Docker Networking</h2>
 <ul>
 <li>TODO</li>
 </ul>
 <h2 id="常用命令">常用命令</h2>
 <ul>
-<li>docker run</li>
-<li>docker start</li>
-<li>docker stop</li>
-<li>docker pull</li>
-<li>docker build</li>
-<li>docker ps</li>
+<li><code>docker run</code> - 下载并执行容器.</li>
+<li><code>docker start</code> - 开始已有容器.</li>
+<li><code>docker stop</code> - 关闭已有容器.</li>
+<li><code>docker pull</code> - 下载容器.</li>
+<li><code>docker build &lt;DockerFile&gt;</code> - 建立容器.</li>
+<li><code>docker exec &lt;name&gt; &lt;path&gt;</code> - 执行容器里的特定程序如bash.</li>
+<li><code>docker ps</code></li>
+</ul>
+<h2 id="常用参数">常用参数</h2>
+<ul>
+<li><code>-i</code> - run container in a interactive mode.</li>
+<li><code>-t</code> - provide a tty for named container.</li>
+<li><code>-d</code> - run in the background and return container ID.</li>
 </ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
