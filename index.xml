@@ -3,9 +3,23 @@
         <title>War.....War Never Changes</title>
         <link>https://arbersephirotheca.github.io/czy.github.io/</link>
         <description>CZY&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 23 Jul 2021 21:10:39 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 24 Jul 2021 22:11:50 &#43;0800</lastBuildDate>
             <atom:link href="https://arbersephirotheca.github.io/czy.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Mit6.824 - Lecture 1 Introduction</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/</link>
+    <pubDate>Sat, 24 Jul 2021 22:11:50 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/</guid>
+    <description><![CDATA[<p><strong>MIT 6.824 Lecture 1 Note</strong></p>]]></description>
+</item><item>
+    <title>Mit6.824 - Lecture 2 RPC and Threads</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/</link>
+    <pubDate>Sat, 24 Jul 2021 22:11:50 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/</guid>
+    <description><![CDATA[<p><strong>MIT 6.824 Lecture 2 Note</strong></p>]]></description>
+</item><item>
     <title>Docker</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/docker/</link>
     <pubDate>Fri, 23 Jul 2021 21:10:39 &#43;0800</pubDate>
