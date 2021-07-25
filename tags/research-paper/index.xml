@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Research Paper - 标签 - War.....War Never Changes</title>
+        <link>https://arbersephirotheca.github.io/czy.github.io/tags/research-paper/</link>
+        <description>Research Paper - 标签 - War.....War Never Changes</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 25 Jul 2021 21:34:17 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/tags/research-paper/" rel="self" type="application/rss+xml" /><item>
+    <title>Research Paper - MapReduce: Simplified Data Processing on Large Clusters</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/mapreduce/</link>
+    <pubDate>Sun, 25 Jul 2021 21:34:17 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/mapreduce/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/mapreduce/mapreduce.png" referrerpolicy="no-referrer">
+            </div><p><strong>Discuss MapReduce research paper</strong></p>]]></description>
+</item></channel>
+</rss>

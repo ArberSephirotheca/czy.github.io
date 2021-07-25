@@ -119,7 +119,7 @@
 * `docker pull` - 下载容器.
 * `docker build <DockerFile>` - 建立容器.
 * `docker exec <name> <path>` - 执行容器里的特定程序如bash.
-* `docker ps`
+* `docker ps` - 查看.
 
 ## 常用参数
 * `-i` - run container in a interactive mode.

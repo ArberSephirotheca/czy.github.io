@@ -2,7 +2,7 @@
 
 **MIT 6.824 Lecture 1 Note**
 <!--more-->
-# WHAT is Distribution System
+## WHAT is Distribution System
 * Multiple computer works together to serve a same service.
 
 ## WHY Distribution System
