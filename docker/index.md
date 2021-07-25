@@ -50,7 +50,7 @@
 ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/volume.png "Docker Volume")
 * Bind mounts:
   使用方法:
-    * `docker run -v <HOST_PATH>:<CONTAINER_PATH> --name xxxx xxxx:version`
+    * `docker run -v <HOST_PATH>:<CONTAINER_PATH> --name <name> <image name:version>`
     * volume会把 `<HOST_PATH>`的内容映射到container里面的`<Container_PATH>` 当中.
   * 作用:
     * 对于需要不停修改的image， docker volume 让你不用重新修改DockerFile/build image, 只需要修改 docker volume/container里面的文件.
@@ -58,10 +58,10 @@
 
 * volume:
   * 使用方法:
-    * `docker volume create my-vol`- Create a volume.
-    * `docker volume inspect my-vol`- Inspect a volume.
-    * `docker volume rm my-vol` - Remove a volume. 
-    * `docker run -v <DOCKER_VOL>:<CONTAINER_PATH> --name xxxx xxxx:version`
+    * `docker volume create <volume name>`- Create a volume.
+    * `docker volume inspect <volume name>`- Inspect a volume.
+    * `docker volume rm <volume name>` - Remove a volume. 
+    * `docker run -v <DOCKER_VOL>:<CONTAINER_PATH> --name <name> <image name:version>`
   * 作用:
     * 使container之间可以**共享**volume的内容.
     * 保持**数据持久化**，只有volume被删除后内容才会消失.
@@ -74,8 +74,44 @@
     * `docker run --name <name> --tmpfs <CONTAINER_PATH> xxxx:version`
   * 作用:
     * 放在内存里，速度比放在disk里面更快.
+## Build application with Docker
+  * In DokcerFile:
+    ```DockerFile
+      FROM <language>:<version>  # choose base image.
+      WORKDIR </Path>            # relativeDir 
+      COPY . .                   # copy file from current dir to Docker daemon.
+      RUN <command>              # execute any commands in a new layer on top of the current image and commit the results.
+      CMD ["<name>"]             # provide defaults for an executing container
+    ```
+  * [12 factor apps](https://12factor.net/zh_cn/):
+    * Codebase
+      * 一份基准代码，多份部署.
+    * Dependencies
+      * 通过 **依赖清单** ，确切地声明所有依赖项.
+    * Config
+      * 应该用环境变量 `env` `env vars` 来储存应用配置，方便不同的部署做修改.
+    * Backing services
+      * 后端服务如数据库(**[MySQL](http://dev.mysql.com/)**, **[MongoDB](https://www.mongodb.com/)**)，消息队列(**[RabbitMQ](https://www.rabbitmq.com/)**)，缓存系统(**[Memcached](https://memcached.org/)**)作为附加资源.
+      通过第三方调用(**AmazonS3**)或者API(**http://auth@api.twitter.com/**)访问来管理.
+    * Build, release, run
+    * Processes
+    * Port binding
+    * Concurrency
+    * Disposability
+      * 程序是可以**瞬间开启或者停止**，这有利于快速、弹性的伸缩应用，迅速部署变化的 代码 或 配置 ，稳健的部署应用.
+    * Dev/prod parity
+    * Logs
+      * `ln -sf /dev/stdout <name>.log` 配合 shell script.
+      * 通过输出流把log整合到一起发送给处理程序(**[logplex](https://github.com/heroku/logplex), [Fluentd](https://github.com/fluent/fluentd)**)，用于查看或者存档.
+      * 把日志当成事件流(**stdout**) 发送到日志索引和分析系统(**[Splunk](https://www.splunk.com/)**)或者储存库(**[Hadoop/Hive](https://hive.apache.org/)**).
+      * 通过以上方法可以有效减少硬盘储存.
+
+    * Admin processes
+## Docker Registry
+* TODO
 ## Docker Networking
 * TODO
+
 ## 常用命令
 * `docker run` - 下载并执行容器.
 * `docker start` - 开始已有容器.

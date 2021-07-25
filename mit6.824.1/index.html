@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Mit6.824 - Lecture 1 Introduction - War.....War Never Changes</title><meta name="Description" content="CZY&#39;s Blog"><meta property="og:title" content="Mit6.824 - Lecture 1 Introduction" />
+        <title>MIT 6.824 - Lecture 1 Introduction - War.....War Never Changes</title><meta name="Description" content="CZY&#39;s Blog"><meta property="og:title" content="MIT 6.824 - Lecture 1 Introduction" />
 <meta property="og:description" content="MIT 6.824 Lecture 1 Note" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" /><meta property="og:image" content="https://arbersephirotheca.github.io/logo.png"/><meta property="article:section" content="posts" />
@@ -15,19 +15,19 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://arbersephirotheca.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Mit6.824 - Lecture 1 Introduction"/>
+<meta name="twitter:title" content="MIT 6.824 - Lecture 1 Introduction"/>
 <meta name="twitter:description" content="MIT 6.824 Lecture 1 Note"/>
 <meta name="application-name" content="CZY">
 <meta name="apple-mobile-web-app-title" content="CZY"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="static/safari-pinned-tab.svg"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" /><link rel="prev" href="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Mit6.824 - Lecture 1 Introduction",
+        "headline": "MIT 6.824 - Lecture 1 Introduction",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/mit6.824.1\/"
-        },"genre": "posts","keywords": "Distribution System, Course","wordcount":  152 ,
+        },"genre": "posts","keywords": "Distribution System, Course","wordcount":  153 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/mit6.824.1\/","datePublished": "2021-07-24T22:11:50+08:00","dateModified": "2021-07-24T22:11:50+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,22 +102,28 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Mit6.824 - Lecture 1 Introduction</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">MIT 6.824 - Lecture 1 Introduction</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/distribution-system/"><i class="far fa-folder fa-fw"></i>Distribution System</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-24">2021-07-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 152 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-24">2021-07-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 153 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-distribution-system">WHY Distribution System</a></li>
+    <li><a href="#consistency">Consistency</a></li>
+    <li><a href="#mapreduce">MapReduce</a></li>
+  </ul>
+</nav></div>
             </div><div class="content" id="content"><p><strong>MIT 6.824 Lecture 1 Note</strong></p>
 <h1 id="what-is-distribution-system">WHAT is Distribution System</h1>
 <ul>
 <li>Multiple computer works together to serve a same service.</li>
 </ul>
-<h1 id="why-distribution-system">WHY Distribution System</h1>
+<h2 id="why-distribution-system">WHY Distribution System</h2>
 <ul>
 <li><strong>Parallelism</strong>.</li>
 <li><strong>Fault tolerance</strong>:
@@ -128,10 +134,10 @@
 <li>Replication</li>
 </ul>
 </li>
-<li><strong>Physical</strong>(bank transfer between two different regions etc.).</li>
+<li><strong>Physical</strong> (bank transfer between two different regions etc.).</li>
 <li><strong>Security/Isolation</strong> (separate code on different machine).</li>
 </ul>
-<h1 id="consistency">Consistency</h1>
+<h2 id="consistency">Consistency</h2>
 <ul>
 <li>Put/Get:
 <ul>
@@ -150,7 +156,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="mapreduce">MapReduce</h1>
+<h2 id="mapreduce">MapReduce</h2>
 <ul>
 <li>Map function:
 <ul>
@@ -178,7 +184,7 @@
                             <a class="link-to-markdown" href="../mit6.824.1/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="Mit6.824 - Lecture 1 Introduction" data-via="xxxx" data-hashtags="Distribution System,Course"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-hashtag="Distribution System"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="Mit6.824 - Lecture 1 Introduction" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="Mit6.824 - Lecture 1 Introduction"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="Mit6.824 - Lecture 1 Introduction"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="Mit6.824 - Lecture 1 Introduction" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="Mit6.824 - Lecture 1 Introduction" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="Mit6.824 - Lecture 1 Introduction"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="MIT 6.824 - Lecture 1 Introduction" data-via="xxxx" data-hashtags="Distribution System,Course"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-hashtag="Distribution System"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="MIT 6.824 - Lecture 1 Introduction" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="MIT 6.824 - Lecture 1 Introduction"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="MIT 6.824 - Lecture 1 Introduction"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="MIT 6.824 - Lecture 1 Introduction" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="MIT 6.824 - Lecture 1 Introduction" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" data-title="MIT 6.824 - Lecture 1 Introduction"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -190,7 +196,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../mit6.824.2/" class="prev" rel="prev" title="Mit6.824 - Lecture 2 RPC and Threads"><i class="fas fa-angle-left fa-fw"></i>Mit6.824 - Lecture 2 RPC and Threads</a></div>
+    <div class="post-nav"><a href="../mit6.824.2/" class="prev" rel="prev" title="MIT 6.824 - Lecture 2 RPC and Threads"><i class="fas fa-angle-left fa-fw"></i>MIT 6.824 - Lecture 2 RPC and Threads</a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">

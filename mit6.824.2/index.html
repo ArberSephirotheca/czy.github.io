@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Mit6.824 - Lecture 2 RPC and Threads - War.....War Never Changes</title><meta name="Description" content="CZY&#39;s Blog"><meta property="og:title" content="Mit6.824 - Lecture 2 RPC and Threads" />
+        <title>MIT 6.824 - Lecture 2 RPC and Threads - War.....War Never Changes</title><meta name="Description" content="CZY&#39;s Blog"><meta property="og:title" content="MIT 6.824 - Lecture 2 RPC and Threads" />
 <meta property="og:description" content="MIT 6.824 Lecture 2 Note" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" /><meta property="og:image" content="https://arbersephirotheca.github.io/logo.png"/><meta property="article:section" content="posts" />
@@ -15,14 +15,14 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://arbersephirotheca.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Mit6.824 - Lecture 2 RPC and Threads"/>
+<meta name="twitter:title" content="MIT 6.824 - Lecture 2 RPC and Threads"/>
 <meta name="twitter:description" content="MIT 6.824 Lecture 2 Note"/>
 <meta name="application-name" content="CZY">
 <meta name="apple-mobile-web-app-title" content="CZY"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="static/safari-pinned-tab.svg"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" /><link rel="prev" href="https://arbersephirotheca.github.io/czy.github.io/docker/" /><link rel="next" href="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Mit6.824 - Lecture 2 RPC and Threads",
+        "headline": "MIT 6.824 - Lecture 2 RPC and Threads",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -102,7 +102,7 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Mit6.824 - Lecture 2 RPC and Threads</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">MIT 6.824 - Lecture 2 RPC and Threads</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/distribution-system/"><i class="far fa-folder fa-fw"></i>Distribution System</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-24">2021-07-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 65 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
@@ -111,9 +111,13 @@
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#thread">Thread</a></li>
+  </ul>
+</nav></div>
             </div><div class="content" id="content"><p><strong>MIT 6.824 Lecture 2 Note</strong></p>
-<h1 id="thread">Thread</h1>
+<h2 id="thread">Thread</h2>
 <ul>
 <li>
 <p>Feature:</p>
@@ -128,24 +132,23 @@
 <li>
 <p>Why thread:</p>
 <ol>
-<li>I/O Concurrency:</li>
-</ol>
+<li>I/O Concurrency:
 <ul>
 <li>Able to send multiple request to the network and waiting for many replies at same time.</li>
 </ul>
-<ol start="2">
-<li>CPU Parallelism:</li>
-</ol>
+</li>
+<li>CPU Parallelism:
 <ul>
 <li>threads can run truly in parallel.</li>
 <li>Could use multiple CPU cycles per second.</li>
 </ul>
-<ol start="3">
-<li>Convenience:</li>
-</ol>
+</li>
+<li>Convenience:
 <ul>
 <li>unblocking main process while doing other jobs.</li>
 </ul>
+</li>
+</ol>
 </li>
 <li>
 <p>TODO</p>
@@ -163,7 +166,7 @@
                             <a class="link-to-markdown" href="../mit6.824.2/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="Mit6.824 - Lecture 2 RPC and Threads" data-via="xxxx" data-hashtags="Distribution System,Course"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-hashtag="Distribution System"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="Mit6.824 - Lecture 2 RPC and Threads" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="Mit6.824 - Lecture 2 RPC and Threads"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="Mit6.824 - Lecture 2 RPC and Threads"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="Mit6.824 - Lecture 2 RPC and Threads" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="Mit6.824 - Lecture 2 RPC and Threads" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="Mit6.824 - Lecture 2 RPC and Threads"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="MIT 6.824 - Lecture 2 RPC and Threads" data-via="xxxx" data-hashtags="Distribution System,Course"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-hashtag="Distribution System"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="MIT 6.824 - Lecture 2 RPC and Threads" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="MIT 6.824 - Lecture 2 RPC and Threads"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="MIT 6.824 - Lecture 2 RPC and Threads"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="MIT 6.824 - Lecture 2 RPC and Threads" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="MIT 6.824 - Lecture 2 RPC and Threads" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/" data-title="MIT 6.824 - Lecture 2 RPC and Threads"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -176,7 +179,7 @@
     </div>
 
     <div class="post-nav"><a href="../docker/" class="prev" rel="prev" title="Docker"><i class="fas fa-angle-left fa-fw"></i>Docker</a>
-            <a href="../mit6.824.1/" class="next" rel="next" title="Mit6.824 - Lecture 1 Introduction">Mit6.824 - Lecture 1 Introduction<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="../mit6.824.1/" class="next" rel="next" title="MIT 6.824 - Lecture 1 Introduction">MIT 6.824 - Lecture 1 Introduction<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
