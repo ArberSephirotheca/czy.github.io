@@ -45,7 +45,7 @@
   3. Worker who is assigned a map task reads and parses contents of input split into map function.
     Map function then produces **intermediate** key/values, which are buffered in **memory**.
   
-  4. Periodically, the buffered pairs are written to the disk, , partitioned into **R** regions.
+  4. Periodically, the buffered pairs are written to the disk, partitioned into **R** regions.
     The location of regions are passed back to **master**.
 
   5. When a **reduce** worker is forwarded by **master** about regions location,
@@ -60,11 +60,30 @@
     **MapReduce** function call is finally returned.
 
 * Master Data Structures
-  * 
+  * It stores the state of [map]/[reduce] tasks(**idle, in-progress or completed**).
+  * It stores the identity of worker machine(for non-idle tasks).
+  * It stores the location and size of **R** intermediate file regions for completed map tasks.
+  * It sends information about intermediate file regions to workers that has **in-progress** reduce tasks.
 
-## Refinements
+* Fault Tolerance
+  * Work Failure:
+    * **Master** ping every **worker** periodically, and if master does not get response by a worker,
+      master will rest all tasks that are **completed** or **in-progress** on worker machine to **idle** states.
+    * The completed **map** tasks on failed machine will be re-executed as it stored on local machine. 
+    * Reduce tasks are notified with the re-execution and redirection of read machine.
 
-## Performance 
+  * Master failure:
+    * Abort MapReduce function if **master** failed.
 
+* Locality
+  * In order to save scare **Network bandwidth**, input data will be stored on local disks of machines.
+  * The **[GFS](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf)** will save serveral copies (typically **3**) of each split on different machines.
+
+* Task Granularity
+  * **master** must make **O(M+R)** scheduling decisions and keeps **O(M * R)** states in memory.
+
+* Backup Tasks
+  * When a **MapReduce** operation is close to completion, the **master** program backup execution of remaining **in-progress** tasks.   
+  * Task is marked as **completed** whenever either the primary or the backup execution completes. 
 
 ***Reference: https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf***

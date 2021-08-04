@@ -108,10 +108,19 @@
 
     * Admin processes
 ## Docker Registry
-* TODO
-## Docker Networking
-* TODO
+1. `docker tag <name>:<version> <userid>/<app name>` 
+2. `docker login`
+3. `docker push <REPOSITORY>:<version>`
 
+## Docker Networking
+* Host networking:
+![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/host_networking.png "Host networking")
+  * `docker run --net=host nginx`
+
+* Bridge networking:
+![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/bridge_networking.png "Bridge networking")
+  * `docker run -p <host port>:<container port> <name>`
+  * docker实际是在iptables做了DNAT规则，实现端口转发功能.
 ## 常用命令
 * `docker run` - 下载并执行容器.
 * `docker start` - 开始已有容器.

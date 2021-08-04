@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="Research Paper - MapReduce: Simplified Data Processing on Large Clusters"/>
 <meta name="twitter:description" content="Discuss MapReduce research paper"/>
 <meta name="application-name" content="CZY">
-<meta name="apple-mobile-web-app-title" content="CZY"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="static/safari-pinned-tab.svg"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://arbersephirotheca.github.io/czy.github.io/mapreduce/" /><link rel="prev" href="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
+<meta name="apple-mobile-web-app-title" content="CZY"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="static/safari-pinned-tab.svg"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://arbersephirotheca.github.io/czy.github.io/mapreduce/" /><link rel="prev" href="https://arbersephirotheca.github.io/czy.github.io/mit6.824.1/" /><link rel="next" href="https://arbersephirotheca.github.io/czy.github.io/gfs/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/mapreduce\/"
-        },"genre": "posts","keywords": "Research Paper, Distribution System","wordcount":  374 ,
+        },"genre": "posts","keywords": "Research Paper, Distribution System","wordcount":  570 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/mapreduce\/","datePublished": "2021-07-25T21:34:17+08:00","dateModified": "2021-07-25T21:34:17+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,8 +104,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Research Paper - MapReduce: Simplified Data Processing on Large Clusters</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/distribution-system/"><i class="far fa-folder fa-fw"></i>Distribution System</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-25">2021-07-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 374 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-07-25">2021-07-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 570 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="../svg/loading.min.svg"
@@ -122,8 +122,6 @@
   <ul>
     <li><a href="#programming-model">Programming Model</a></li>
     <li><a href="#implementation">Implementation</a></li>
-    <li><a href="#refinements">Refinements</a></li>
-    <li><a href="#performance">Performance</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>Discuss MapReduce research paper</strong></p>
@@ -224,7 +222,7 @@ There are <strong>M</strong> map tasks and <strong>R</strong> reduce tasks.</p>
 Map function then produces <strong>intermediate</strong> key/values, which are buffered in <strong>memory</strong>.</p>
 </li>
 <li>
-<p>Periodically, the buffered pairs are written to the disk, , partitioned into <strong>R</strong> regions.
+<p>Periodically, the buffered pairs are written to the disk, partitioned into <strong>R</strong> regions.
 The location of regions are passed back to <strong>master</strong>.</p>
 </li>
 <li>
@@ -244,12 +242,55 @@ The <strong>reduce</strong> function then outputs result to a file.</p>
 </ol>
 </li>
 <li>
-<p>Master Data Structures
-*</p>
+<p>Master Data Structures</p>
+<ul>
+<li>It stores the state of <sup>map</sup>/<sub>reduce</sub> tasks(<strong>idle, in-progress or completed</strong>).</li>
+<li>It stores the identity of worker machine(for non-idle tasks).</li>
+<li>It stores the location and size of <strong>R</strong> intermediate file regions for completed map tasks.</li>
+<li>It sends information about intermediate file regions to workers that has <strong>in-progress</strong> reduce tasks.</li>
+</ul>
+</li>
+<li>
+<p>Fault Tolerance</p>
+<ul>
+<li>
+<p>Work Failure:</p>
+<ul>
+<li><strong>Master</strong> ping every <strong>worker</strong> periodically, and if master does not get response by a worker,
+master will rest all tasks that are <strong>completed</strong> or <strong>in-progress</strong> on worker machine to <strong>idle</strong> states.</li>
+<li>The completed <strong>map</strong> tasks on failed machine will be re-executed as it stored on local machine.</li>
+<li>Reduce tasks are notified with the re-execution and redirection of read machine.</li>
+</ul>
+</li>
+<li>
+<p>Master failure:</p>
+<ul>
+<li>Abort MapReduce function if <strong>master</strong> failed.</li>
+</ul>
 </li>
 </ul>
-<h2 id="refinements">Refinements</h2>
-<h2 id="performance">Performance</h2>
+</li>
+<li>
+<p>Locality</p>
+<ul>
+<li>In order to save scare <strong>Network bandwidth</strong>, input data will be stored on local disks of machines.</li>
+<li>The <strong><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf" target="_blank" rel="noopener noreffer">GFS</a></strong> will save serveral copies (typically <strong>3</strong>) of each split on different machines.</li>
+</ul>
+</li>
+<li>
+<p>Task Granularity</p>
+<ul>
+<li><strong>master</strong> must make <strong>O(M+R)</strong> scheduling decisions and keeps <strong>O(M * R)</strong> states in memory.</li>
+</ul>
+</li>
+<li>
+<p>Backup Tasks</p>
+<ul>
+<li>When a <strong>MapReduce</strong> operation is close to completion, the <strong>master</strong> program backup execution of remaining <strong>in-progress</strong> tasks.</li>
+<li>Task is marked as <strong>completed</strong> whenever either the primary or the backup execution completes.</li>
+</ul>
+</li>
+</ul>
 <p><em><strong>Reference: <a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf" target="_blank" rel="noopener noreffer">https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf</a></strong></em></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -275,7 +316,8 @@ The <strong>reduce</strong> function then outputs result to a file.</p>
         </section>
     </div>
 
-    <div class="post-nav"><a href="../mit6.824.1/" class="prev" rel="prev" title="MIT 6.824 - Lecture 1 Introduction"><i class="fas fa-angle-left fa-fw"></i>MIT 6.824 - Lecture 1 Introduction</a></div>
+    <div class="post-nav"><a href="../mit6.824.1/" class="prev" rel="prev" title="MIT 6.824 - Lecture 1 Introduction"><i class="fas fa-angle-left fa-fw"></i>MIT 6.824 - Lecture 1 Introduction</a>
+            <a href="../gfs/" class="next" rel="next" title="Research Paper - GFS">Research Paper - GFS<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">

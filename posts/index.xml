@@ -3,7 +3,14 @@
         <title>所有文章 - War.....War Never Changes</title>
         <link>https://arbersephirotheca.github.io/czy.github.io/posts/</link>
         <description>所有文章 | War.....War Never Changes</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 25 Jul 2021 21:34:17 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Aug 2021 11:29:50 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Research Paper - GFS</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/gfs/</link>
+    <pubDate>Wed, 04 Aug 2021 11:29:50 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/gfs/</guid>
+    <description><![CDATA[<p><strong>Discuss GFS research paper</strong></p>]]></description>
+</item><item>
     <title>Research Paper - MapReduce: Simplified Data Processing on Large Clusters</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/mapreduce/</link>
     <pubDate>Sun, 25 Jul 2021 21:34:17 &#43;0800</pubDate>
@@ -45,6 +52,15 @@
                 <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/redis.png" referrerpolicy="no-referrer">
             </div><p><strong>这篇文章讨论了redis的基础数据结构和特点</strong></p>]]></description>
 </item><item>
+    <title>OS - Memory Alignment</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</link>
+    <pubDate>Mon, 04 May 2020 15:58:26 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/memory_alignment.jpg" referrerpolicy="no-referrer">
+            </div><p><strong>这篇文章讨论了内存对齐的原理</strong></p>]]></description>
+</item><item>
     <title>Algorithm - MergeSort</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/mergesort/</link>
     <pubDate>Fri, 27 Mar 2020 16:38:01 &#43;0800</pubDate>
@@ -53,15 +69,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/mergesort.jpg" referrerpolicy="no-referrer">
             </div><p><strong>这篇文章讨论了归并排序的原理</strong></p>]]></description>
-</item><item>
-    <title>OS - Memory Alignment</title>
-    <link>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</link>
-    <pubDate>Wed, 04 Mar 2020 15:58:26 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/memory_alignment.jpg" referrerpolicy="no-referrer">
-            </div><p><strong>这篇文章讨论了内存对齐的原理</strong></p>]]></description>
 </item><item>
     <title>Algorithm - QuickSort</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/quicksort/</link>
