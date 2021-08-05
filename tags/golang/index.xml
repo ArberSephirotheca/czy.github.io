@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Golang - 标签 - War.....War Never Changes</title>
+        <title>Golang - 标签 - Don&#39;t Panic</title>
         <link>https://arbersephirotheca.github.io/czy.github.io/tags/golang/</link>
-        <description>Golang - 标签 - War.....War Never Changes</description>
+        <description>Golang - 标签 - Don&#39;t Panic</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 23 Jul 2021 21:10:39 &#43;0800</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/tags/golang/" rel="self" type="application/rss+xml" /><item>
     <title>Docker</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/docker/</link>

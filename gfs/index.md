@@ -19,7 +19,7 @@
 * Consistency -> Low performance
 
 ## Structure of GFS
-![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/GFS/read.jpg "GFS Architecture")
+![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/gfs/read.jpg "GFS Architecture")
 
 ```
 C1, C2, C3 ... Cn
@@ -57,7 +57,7 @@ Chunk server 3
 
 
 ## Write
-![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/GFS/write.jpg "Write Control and Data Flow")
+![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/gfs/write.jpg "Write Control and Data Flow")
 1. Client asks Master for **primary** chunk which holds lease.
 2. If no primary on master:
   1. Find **up to date** replicas.
@@ -75,7 +75,7 @@ Chunk server 3
 * **consistence** - a file region is *consistent* if all clients will always see the same data.
 * **defined** - a region is *defined* after a file data mutation if it is **consistent** and
   client will see what the mutation writes in its entirely.
-![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/GFS/region.png "File Region State After Mutation")
+![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/gfs/region.png "File Region State After Mutation")
 
 * Consistentcy on file/directory:
   * Master use **prefix compression** to make a lookup table mapping full pathnames to metadata (etc. `/d1/d2/.../dn`)
