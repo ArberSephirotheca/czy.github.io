@@ -29,10 +29,10 @@ to work as a group that can survive the failures of some of its members.
 	4. duplication
 	5. reordering
 * It decomposes consensus problem into three subproblems:
-![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state.png)
-![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/append.png)
-![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/request.png)
-![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/rule.png)
+![avatar](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state.png)
+![avatar](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/append.png)
+![avatar](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/request.png)
+![avatar](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/rule.png)
 	1. **Leader election** - A leader must br chosen when an exisiting leader fails (Section **5.2**).
 	2. **Log replication** - the leader must accept log entries from clients and replicates them across the cluster (Section **5.3**).
 	3. **Safety** - see figure below.
@@ -40,4 +40,27 @@ to work as a group that can survive the failures of some of its members.
 
 
 ## Basic Structure
+* Each server has one of state:
+	1. Candidate - used to elect a new leader.
+	2. Follwer - simply respond to rquests from leaders and candidates.
+	3. Leader - handles all client requests(follower will redirect request to leader).
+![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state_change.png "State Change")
+
+## RPCs
+* Two type of RPC:
+	1. RequestVote RPCs - initiated by **candidates**.
+	2. AppendEntries RPCs - initiated by **leader** to replicate log and send heartbeat.
+
+## Leader election
+* When server start up, they begin as **followers**.
+* Leader send periodic heartbeats(append with **no log entries**) to all followers.
+* When a follower receive no message over a period (*election timeout*), it starts a election:
+	* Follower increments its **term** and becomes **candidate**.
+	* Candidate **vote** itself and issues requestVote RPCs.
+	* Candidate mantains its state until:
+		1. It wins election.
+		2. Another server becoms a leader.
+		3. No winner over a period of time.
+	* When a candidate receives RPCs from other candidates with **<** term, it rejects.
+	* When a candidate receives RPCs from other candidates with **>=** term, it becomes follower.
 

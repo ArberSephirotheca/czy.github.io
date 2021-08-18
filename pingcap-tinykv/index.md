@@ -28,6 +28,14 @@
 * Each read/write opens a new transcation.
 * Discard() after each transaction
 
+## Project 2
+* A:
+  * Initialize the new raft.
+  * Handle step to deal about state change and message received/sent.
+  * Each time a follower/candidate encounters election timeout, it becomes a coandidate to start a new election, the term + 1.
+  * voter use first-come-first-serve rule, which only votes once in a single term.
+  * Use randomnized election timeout to prevent conflict that many followers become candiate at the same time.
+  
 
 
 ## Reference

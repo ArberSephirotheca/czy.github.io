@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/pingcap-tinykv\/"
-        },"genre": "posts","keywords": "Distribution System","wordcount":  242 ,
+        },"genre": "posts","keywords": "Distribution System","wordcount":  307 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/pingcap-tinykv\/","datePublished": "2021-08-06T21:59:49+08:00","dateModified": "2021-08-06T21:59:49+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Pingcap Project - Tinykv</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/distribution-system/"><i class="far fa-folder fa-fw"></i>Distribution System</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-06">2021-08-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 242 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-06">2021-08-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 307 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -116,6 +116,7 @@
     <li><a href="#高可用分布式储存系统必要的需求">高可用分布式储存系统<em>必要</em>的需求:</a></li>
     <li><a href="#高可用分布式储存系统可选的需求">高可用分布式储存系统<em>可选</em>的需求:</a></li>
     <li><a href="#project-1">Project 1</a></li>
+    <li><a href="#project-2">Project 2</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
@@ -147,6 +148,18 @@
 * It uses LSM tree with value log to seperate keys from values.</li>
 <li>Each read/write opens a new transcation.</li>
 <li>Discard() after each transaction</li>
+</ul>
+<h2 id="project-2">Project 2</h2>
+<ul>
+<li>A:
+<ul>
+<li>Initialize the new raft.</li>
+<li>Handle step to deal about state change and message received/sent.</li>
+<li>Each time a follower/candidate encounters election timeout, it becomes a coandidate to start a new election, the term + 1.</li>
+<li>voter use first-come-first-serve rule, which only votes once in a single term.</li>
+<li>Use randomnized election timeout to prevent conflict that many followers become candiate at the same time.</li>
+</ul>
+</li>
 </ul>
 <h2 id="reference">Reference</h2>
 <ul>

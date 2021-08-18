@@ -29,7 +29,7 @@ Why Raft  It provides a consensus algorithm allowing a collection of machines to
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/raft\/"
-        },"genre": "posts","keywords": "Research Paper, Distribution System","wordcount":  158 ,
+        },"genre": "posts","keywords": "Research Paper, Distribution System","wordcount":  319 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/raft\/","datePublished": "2021-08-10T17:25:36+08:00","dateModified": "2021-08-10T17:25:36+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -106,8 +106,8 @@ Why Raft  It provides a consensus algorithm allowing a collection of machines to
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Research Paper - Raft</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>xxxx</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/distribution-system/"><i class="far fa-folder fa-fw"></i>Distribution System</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 158 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-10">2021-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 319 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -120,6 +120,8 @@ Why Raft  It provides a consensus algorithm allowing a collection of machines to
     <li><a href="#replicated-state-machines">Replicated state machines</a></li>
     <li><a href="#raft-consensus-algorithm">Raft Consensus algorithm</a></li>
     <li><a href="#basic-structure">Basic Structure</a></li>
+    <li><a href="#rpcs">RPCs</a></li>
+    <li><a href="#leader-election">Leader election</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>&lt;!more&gt;</p>
@@ -181,7 +183,7 @@ overlap largely during transitions.</li>
         data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state.png 2x"
         data-sizes="auto"
         alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state.png"
-        title="Alt text" />
+        title="avatar" />
 <img
         class="lazyload"
         src="../svg/loading.min.svg"
@@ -189,7 +191,7 @@ overlap largely during transitions.</li>
         data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/append.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/append.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/append.png 2x"
         data-sizes="auto"
         alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/append.png"
-        title="Alt text" />
+        title="avatar" />
 <img
         class="lazyload"
         src="../svg/loading.min.svg"
@@ -197,7 +199,7 @@ overlap largely during transitions.</li>
         data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/request.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/request.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/request.png 2x"
         data-sizes="auto"
         alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/request.png"
-        title="Alt text" />
+        title="avatar" />
 <img
         class="lazyload"
         src="../svg/loading.min.svg"
@@ -205,7 +207,7 @@ overlap largely during transitions.</li>
         data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/rule.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/rule.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/rule.png 2x"
         data-sizes="auto"
         alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/rule.png"
-        title="Alt text" />
+        title="avatar" />
 <ol>
 <li><strong>Leader election</strong> - A leader must br chosen when an exisiting leader fails (Section <strong>5.2</strong>).</li>
 <li><strong>Log replication</strong> - the leader must accept log entries from clients and replicates them across the cluster (Section <strong>5.3</strong>).</li>
@@ -224,6 +226,54 @@ overlap largely during transitions.</li>
 </li>
 </ul>
 <h2 id="basic-structure">Basic Structure</h2>
+<ul>
+<li>Each server has one of state:
+<ol>
+<li>Candidate - used to elect a new leader.</li>
+<li>Follwer - simply respond to rquests from leaders and candidates.</li>
+<li>Leader - handles all client requests(follower will redirect request to leader).
+<figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state_change.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state_change.png" data-sub-html="<h2>State Change</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state_change.png"
+            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state_change.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state_change.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state_change.png 2x"
+            data-sizes="auto"
+            alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/raft/state_change.png" />
+    </a><figcaption class="image-caption">State Change</figcaption>
+    </figure></li>
+</ol>
+</li>
+</ul>
+<h2 id="rpcs">RPCs</h2>
+<ul>
+<li>Two type of RPC:
+<ol>
+<li>RequestVote RPCs - initiated by <strong>candidates</strong>.</li>
+<li>AppendEntries RPCs - initiated by <strong>leader</strong> to replicate log and send heartbeat.</li>
+</ol>
+</li>
+</ul>
+<h2 id="leader-election">Leader election</h2>
+<ul>
+<li>When server start up, they begin as <strong>followers</strong>.</li>
+<li>Leader send periodic heartbeats(append with <strong>no log entries</strong>) to all followers.</li>
+<li>When a follower receive no message over a period (<em>election timeout</em>), it starts a election:
+<ul>
+<li>Follower increments its <strong>term</strong> and becomes <strong>candidate</strong>.</li>
+<li>Candidate <strong>vote</strong> itself and issues requestVote RPCs.</li>
+<li>Candidate mantains its state until:
+<ol>
+<li>It wins election.</li>
+<li>Another server becoms a leader.</li>
+<li>No winner over a period of time.</li>
+</ol>
+</li>
+<li>When a candidate receives RPCs from other candidates with <strong>&lt;</strong> term, it rejects.</li>
+<li>When a candidate receives RPCs from other candidates with <strong>&gt;=</strong> term, it becomes follower.</li>
+</ul>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
