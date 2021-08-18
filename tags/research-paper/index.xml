@@ -9,8 +9,7 @@
     <pubDate>Tue, 10 Aug 2021 17:25:36 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/raft/</guid>
-    <description><![CDATA[&lt;!more&gt;
-Why Raft  It provides a consensus algorithm allowing a collection of machines to work as a group that can survive the failures of some of its members.  Features  Strong leader  logs only flow from leader to others.   Leader election  Raft uses randomized timers to elect leaders.   Membership changes  Raft uses joint consensus approach where two different configurations overlap largely during transitions.]]></description>
+    <description><![CDATA[]]></description>
 </item><item>
     <title>Research Paper - GFS</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/gfs/</link>

@@ -11,15 +11,14 @@
     <pubDate>Tue, 10 Aug 2021 17:25:36 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/raft/</guid>
-    <description><![CDATA[&lt;!more&gt;
-Why Raft  It provides a consensus algorithm allowing a collection of machines to work as a group that can survive the failures of some of its members.  Features  Strong leader  logs only flow from leader to others.   Leader election  Raft uses randomized timers to elect leaders.   Membership changes  Raft uses joint consensus approach where two different configurations overlap largely during transitions.]]></description>
+    <description><![CDATA[]]></description>
 </item><item>
     <title>Pingcap Project - Tinykv</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/pingcap-tinykv/</link>
     <pubDate>Fri, 06 Aug 2021 21:59:49 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/pingcap-tinykv/</guid>
-    <description><![CDATA[记录下做tinykv的想法 &lt;!more&gt; 高可用分布式储存系统必要的需求: 合理的副本数量 分配副本到不同的机器上 加入新节点后，要将其他节点上的副本迁移过来 节]]></description>
+    <description><![CDATA[<p><strong>记录下做tinykv的想法</strong></p>]]></description>
 </item><item>
     <title>Research Paper - GFS</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/gfs/</link>

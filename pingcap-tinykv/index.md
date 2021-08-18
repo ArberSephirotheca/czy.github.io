@@ -1,7 +1,7 @@
 # Pingcap Project - Tinykv
 
 **记录下做tinykv的想法**
-<!more>
+<!--more-->
 
 ## 高可用分布式储存系统*必要*的需求:
 * 合理的副本数量

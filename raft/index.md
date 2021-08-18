@@ -1,6 +1,6 @@
 # Research Paper - Raft
 
-<!more>
+<!--more-->
 
 ## Why Raft
 * It provides a consensus algorithm allowing a collection of machines
