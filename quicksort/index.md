@@ -13,31 +13,25 @@
 
 ## 实现
 ```cpp
-int partitions(vector<int>&arr, int l, int r){
-  int pivot = l + (r-l)/2;
-  int i = l;
-  int j = r;
-  while(true){
-    //find leftmost element greater than or equal to pivot
-    while(arr[i] < pivot)
-      i++;
-    //find rightmost element less than or equal to pivot
-    while(arr[j] > pivot)
-      j--;
-    //two pointers met
-    if(i >= j)
-      return j;
-    swap(arr[i], arr[j]);
-  }
-  arr[l] = pivot;
-  return l;
+int parition(vector<int>& nums, int l, int r){
+    int pivot = nums[l];
+    while(l < r){
+        while(l < r && nums[r] >= pivot)
+            r--;
+        nums[l] = nums[r]; 
+        while(l < r && nums[l] <= pivot)
+            l++;
+        nums[r] = nums[l];
+    }
+    nums[l] = pivot;
+    return l;
 }
-void quicksort(vector<int>&arr, int l, int r){
-  if(l < r){
-    int pivot = partitions(arr, l, h);
-    quicksort(arr, l, pivot);
-    quicksort(arr, pivot+1, r);
-  }
+void quick(vector<int>& nums, int l, int r){
+    if(l > r)
+        return;
+    int pivot = parition(nums,l,r);
+    quick(nums,l,pivot-1);
+    quick(nums,pivot+1,r);
 }
 ```
 

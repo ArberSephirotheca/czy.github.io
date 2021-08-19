@@ -154,7 +154,7 @@
 <ul>
 <li>Initialize the new raft.</li>
 <li>Handle step to deal about state change and message received/sent.</li>
-<li>Each time a follower/candidate encounters election timeout, it becomes a coandidate to start a new election, the term + 1.</li>
+<li>Each time a follower/candidate encounters election timeout, it becomes a candidate to start a new election, the term + 1.</li>
 <li>voter use first-come-first-serve rule, which only votes once in a single term.</li>
 <li>Use randomnized election timeout to prevent conflict that many followers become candiate at the same time.</li>
 </ul>
