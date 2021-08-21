@@ -3,9 +3,16 @@
         <title>Don&#39;t Panic</title>
         <link>https://arbersephirotheca.github.io/czy.github.io/</link>
         <description>CZY&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 10 Aug 2021 17:25:36 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 21 Aug 2021 23:36:28 &#43;0800</lastBuildDate>
             <atom:link href="https://arbersephirotheca.github.io/czy.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Todolist</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/todolist/</link>
+    <pubDate>Sat, 21 Aug 2021 23:36:28 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/todolist/</guid>
+    <description><![CDATA[<p>TODO list</p>]]></description>
+</item><item>
     <title>Research Paper - Raft</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/raft/</link>
     <pubDate>Tue, 10 Aug 2021 17:25:36 &#43;0800</pubDate>
@@ -76,14 +83,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/memory_alignment.jpg" referrerpolicy="no-referrer">
             </div><p><strong>这篇文章讨论了内存对齐的原理</strong></p>]]></description>
-</item><item>
-    <title>Algorithm - MergeSort</title>
-    <link>https://arbersephirotheca.github.io/czy.github.io/mergesort/</link>
-    <pubDate>Fri, 27 Mar 2020 16:38:01 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://arbersephirotheca.github.io/czy.github.io/mergesort/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/mergesort.jpg" referrerpolicy="no-referrer">
-            </div><p><strong>这篇文章讨论了归并排序的原理</strong></p>]]></description>
 </item></channel>
 </rss>
