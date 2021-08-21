@@ -1,4 +1,4 @@
-# Todolist
+# Todo List
 
 TODO list
 <!--more-->
@@ -50,4 +50,4 @@ TODO list
 - [ ] GC
 - [ ] Mutex
 - [ ] semaphore
-*reference: https://www.bilibili.com/video/BV1hv411x7we*
+- *reference: https://www.bilibili.com/video/BV1hv411x7we*
