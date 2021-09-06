@@ -4,6 +4,7 @@ TODO list
 <!--more-->
 ## Paper
 - [ ] [Paxos](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf)
+- [x] [Time, Clocks, and the Ordering of Events in a Distributed System](https://lamport.azurewebsites.net/pubs/time-clocks.pdf)
 - [x] [Raft](https://raft.github.io/raft.pdf)
 - [x] [GFS](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf)
 - [x] [HDFS](https://storageconference.us/2010/Papers/MSST/Shvachko.pdf)
