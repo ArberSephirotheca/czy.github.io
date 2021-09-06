@@ -6,7 +6,7 @@ TODO list
 - [ ] [Paxos](https://lamport.azurewebsites.net/pubs/paxos-simple.pdf)
 - [x] [Raft](https://raft.github.io/raft.pdf)
 - [x] [GFS](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/gfs-sosp2003.pdf)
-- [ ] [HDFS](https://storageconference.us/2010/Papers/MSST/Shvachko.pdf)
+- [x] [HDFS](https://storageconference.us/2010/Papers/MSST/Shvachko.pdf)
 - [x] [MapReduce](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf)
 - [ ] [Bigtable](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/bigtable-osdi06.pdf)
 - [ ] [Precolator](http://notes.stephenholiday.com/Percolator.pdf)
