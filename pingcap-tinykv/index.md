@@ -35,7 +35,10 @@
   * Each time a follower/candidate encounters election timeout, it becomes a candidate to start a new election, the term + 1.
   * voter use first-come-first-served rule, which only votes once in a single term.
   * Use randomnized election timeout to prevent conflict that many followers become candiate at the same time.
-  
+  * Remeber to clean the votes map for each term raft becomes a candidate
+
+* B:
+  *   
 
 
 ## Reference

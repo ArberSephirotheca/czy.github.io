@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Research Paper - HDFS - Don&#39;t Panic</title><meta name="Description" content="CZY&#39;s Blog"><meta property="og:title" content="Research Paper - HDFS" />
+<meta property="og:description" content="Discuss HDFS research paper" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://arbersephirotheca.github.io/czy.github.io/hdfs/" /><meta property="og:image" content="https://arbersephirotheca.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-05T16:26:33-04:00" />
+<meta property="article:modified_time" content="2021-09-05T16:26:33-04:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://arbersephirotheca.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Research Paper - HDFS"/>
+<meta name="twitter:description" content="Discuss HDFS research paper"/>
+<meta name="application-name" content="CZY">
+<meta name="apple-mobile-web-app-title" content="CZY"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="static/safari-pinned-tab.svg"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://arbersephirotheca.github.io/czy.github.io/hdfs/" /><link rel="prev" href="https://arbersephirotheca.github.io/czy.github.io/raft/" /><link rel="next" href="https://arbersephirotheca.github.io/czy.github.io/todolist/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Research Paper - HDFS",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/hdfs\/"
+        },"genre": "posts","keywords": "Research Paper, Distributed file system","wordcount":  498 ,
+        "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/hdfs\/","datePublished": "2021-09-05T16:26:33-04:00","dateModified": "2021-09-05T16:26:33-04:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "CZY"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../" title="Don&#39;t Panic">Chill</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../posts/"> 所有文章 </a><a class="menu-item" href="../tags/"> 标签 </a><a class="menu-item" href="../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../" title="Don&#39;t Panic">Chill</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../posts/" title="">所有文章</a><a class="menu-item" href="../tags/" title="">标签</a><a class="menu-item" href="../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Research Paper - HDFS</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/distribution-system/"><i class="far fa-folder fa-fw"></i>Distribution System</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-05">2021-09-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 498 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-hdfs">What is HDFS</a></li>
+    <li><a href="#why-hdfs">Why HDFS</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#block-placement">Block Placement</a></li>
+    <li><a href="#consistency">Consistency</a></li>
+    <li><a href="#availability">Availability</a></li>
+    <li><a href="#parititon-tolerance">Parititon tolerance</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><strong>Discuss HDFS research paper</strong></p>
+<h2 id="what-is-hdfs">What is HDFS</h2>
+<ul>
+<li>HDFS is a file system component of Hadoop, which store metadata and application data separately.</li>
+</ul>
+<h2 id="why-hdfs">Why HDFS</h2>
+<ul>
+<li>HDFS is designed to store very large data sets reliably, and to stream those data sets at high bandwidth to user applications.</li>
+<li>By distributing storage and computation across many servers, the resource can grow with demand while remaining economical at every size.</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<ul>
+<li>
+<p>NameNode:</p>
+<ul>
+<li>maintain the <strong>namespace tree</strong> and mapping of file blocks(phyiscal address) to DataNodes.</li>
+<li>namesapce is a hierarchy of files and directories, and is stored in <strong>RAM</strong>.</li>
+<li>Files and directories are represented by <em>Inode</em>, which record permission, modification and access time.</li>
+</ul>
+</li>
+<li>
+<p>DataNode:</p>
+<ul>
+<li>Two files: one store <strong>application data</strong> and another one store <strong>metadata</strong>.</li>
+<li>File content is split into large blocks and each block is replicated at multiple DataNodes.</li>
+<li>Intially with no <em>namespace ID</em>, and able to join cluster and receive the cluster&rsquo;s <em>namespace ID</em>.</li>
+<li>After joining a NameNode for a first time, DataNode registers a unique <em>storage ID</em>.</li>
+<li>Each time DataNode connects to a NameNode, <em>namespace ID</em> and <em>software version</em> will be verified, DataNode will be shutting down if either of them match.</li>
+<li>Send <em>Hearbeat message</em> periodically to NameNode to confirm that DataNode is operating.</li>
+</ul>
+</li>
+<li>
+<p>HDFS Client:</p>
+</li>
+<li>
+<p>User application that accesses file system.</p>
+</li>
+<li>
+<p>Process of reading data:</p>
+<ol>
+<li>Asks NameNode for list of DataNodes.</li>
+<li>Connect to a DataNode and request the transfer of the desired block.</li>
+<li><strong>Pipelines</strong> data to the chosen DataNodes.</li>
+<li>Confirm the creation of the block replicas to the NameNode.
+<figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/structure.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/structure.png" data-sub-html="<h2>Client writing data</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/structure.png"
+            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/structure.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/structure.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/structure.png 2x"
+            data-sizes="auto"
+            alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/structure.png" />
+    </a><figcaption class="image-caption">Client writing data</figcaption>
+    </figure></li>
+</ol>
+</li>
+</ul>
+<h2 id="block-placement">Block Placement</h2>
+<ul>
+<li>HDFS replica placement policy:
+<ol>
+<li>No Datanode contains more than one replica of any block.</li>
+<li>No rack contains more than two replicas of the same block.
+<figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/cluster.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/cluster.png" data-sub-html="<h2>Cluster Topology</h2><p>Alt text</p>">
+        <img
+            class="lazyload"
+            src="../svg/loading.min.svg"
+            data-src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/cluster.png"
+            data-srcset="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/cluster.png, https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/cluster.png 1.5x, https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/cluster.png 2x"
+            data-sizes="auto"
+            alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/cluster.png" />
+    </a><figcaption class="image-caption">Cluster Topology</figcaption>
+    </figure></li>
+</ol>
+</li>
+</ul>
+<h2 id="consistency">Consistency</h2>
+<ul>
+<li>Write:
+<ul>
+<li>HDFS maintains consistency  by allowing only <strong>single</strong> client at a time to write the file using <strong>Write Leases</strong>, but it does prevent other clients from reading the file.</li>
+</ul>
+</li>
+<li>Read:
+<ul>
+<li>Data written to the current block is not guaranteed to be visual to other clients, which read the content of the file. Only when the writing client concluded its write operation and closed the file, the new content is visible for sure.</li>
+</ul>
+</li>
+</ul>
+<h2 id="availability">Availability</h2>
+<ul>
+<li>A DataNode stores checksums in a metadata file separate from the block’s data file. When HDFS reads a file, each
+block’s data and checksums are shipped to the client. The client then can fetch a difference replica once the checksum is not right.</li>
+<li>However, HDFS does not support the case of multiple correlated failures (ie. three failed DataNodes with same HDFS block)</li>
+</ul>
+<h2 id="parititon-tolerance">Parititon tolerance</h2>
+<ul>
+<li>When write, Client will wait for ACK from replicas, and the transaction will be successful if the number of DataNodes that acknowledge
+the reception of all the packages is equal or greater than minimum number of replicas.</li>
+<li>The NameNode endeavors to ensure that each block always
+has the intended number of replicas.</li>
+<li>The NameNode make sures that not all replicas of a block are located on one <strong>rack</strong> using block placement policy.</li>
+</ul></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-09-05</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="../hdfs/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://arbersephirotheca.github.io/czy.github.io/hdfs/" data-title="Research Paper - HDFS" data-via="xxxx" data-hashtags="Research Paper,Distributed file system"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://arbersephirotheca.github.io/czy.github.io/hdfs/" data-hashtag="Research Paper"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://arbersephirotheca.github.io/czy.github.io/hdfs/" data-title="Research Paper - HDFS" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://arbersephirotheca.github.io/czy.github.io/hdfs/" data-title="Research Paper - HDFS"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://arbersephirotheca.github.io/czy.github.io/hdfs/" data-title="Research Paper - HDFS"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://arbersephirotheca.github.io/czy.github.io/hdfs/" data-title="Research Paper - HDFS" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://arbersephirotheca.github.io/czy.github.io/hdfs/" data-title="Research Paper - HDFS" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://arbersephirotheca.github.io/czy.github.io/hdfs/" data-title="Research Paper - HDFS"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/research-paper/">Research Paper</a>,&nbsp;<a href="../tags/distributed-file-system/">Distributed file system</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../raft/" class="prev" rel="prev" title="Research Paper - Raft"><i class="fas fa-angle-left fa-fw"></i>Research Paper - Raft</a>
+            <a href="../todolist/" class="next" rel="next" title="TODO List">TODO List<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../lib/sharer/sharer.min.js"></script><script type="text/javascript" src="../lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="../js/theme.min.js"></script></body>
+</html>

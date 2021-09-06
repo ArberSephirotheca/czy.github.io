@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/pingcap-tinykv\/"
-        },"genre": "posts","keywords": "Distribution System","wordcount":  306 ,
+        },"genre": "posts","keywords": "Distribution System","wordcount":  320 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/pingcap-tinykv\/","datePublished": "2021-08-06T21:59:49+08:00","dateModified": "2021-08-06T21:59:49+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Pingcap Project - Tinykv</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/distribution-system/"><i class="far fa-folder fa-fw"></i>Distribution System</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-06">2021-08-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 306 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-06">2021-08-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 320 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -150,13 +150,21 @@
 </ul>
 <h2 id="project-2">Project 2</h2>
 <ul>
-<li>A:
+<li>
+<p>A:</p>
 <ul>
 <li>Initialize the new raft.</li>
 <li>Handle step to deal about state change and message received/sent.</li>
 <li>Each time a follower/candidate encounters election timeout, it becomes a candidate to start a new election, the term + 1.</li>
 <li>voter use first-come-first-served rule, which only votes once in a single term.</li>
 <li>Use randomnized election timeout to prevent conflict that many followers become candiate at the same time.</li>
+<li>Remeber to clean the votes map for each term raft becomes a candidate</li>
+</ul>
+</li>
+<li>
+<p>B:</p>
+<ul>
+<li></li>
 </ul>
 </li>
 </ul>
@@ -194,7 +202,7 @@
 </div>
 <div id="comments"></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.86.0-DEV">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.88.1">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../" target="_blank">xxxx</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div>
     </footer></div>

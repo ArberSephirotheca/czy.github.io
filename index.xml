@@ -3,15 +3,22 @@
         <title>Don&#39;t Panic</title>
         <link>https://arbersephirotheca.github.io/czy.github.io/</link>
         <description>CZY&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 21 Aug 2021 23:36:28 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 05 Sep 2021 16:26:33 -0400</lastBuildDate>
             <atom:link href="https://arbersephirotheca.github.io/czy.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Todo List</title>
+    <title>TODO List</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/todolist/</link>
     <pubDate>Sat, 21 Aug 2021 23:36:28 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/todolist/</guid>
     <description><![CDATA[<p>TODO list</p>]]></description>
+</item><item>
+    <title>Research Paper - HDFS</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/hdfs/</link>
+    <pubDate>Sun, 05 Sep 2021 16:26:33 -0400</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/hdfs/</guid>
+    <description><![CDATA[<p><strong>Discuss HDFS research paper</strong></p>]]></description>
 </item><item>
     <title>Research Paper - Raft</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/raft/</link>
@@ -74,14 +81,5 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/redis.png" referrerpolicy="no-referrer">
             </div><p><strong>这篇文章讨论了redis的基础数据结构和特点</strong></p>]]></description>
-</item><item>
-    <title>OS - Memory Alignment</title>
-    <link>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</link>
-    <pubDate>Mon, 04 May 2020 15:58:26 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://arbersephirotheca.github.io/czy.github.io/memory_alignment/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/memory_alignment.jpg" referrerpolicy="no-referrer">
-            </div><p><strong>这篇文章讨论了内存对齐的原理</strong></p>]]></description>
 </item></channel>
 </rss>
