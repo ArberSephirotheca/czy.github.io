@@ -10,12 +10,12 @@
 * By distributing storage and computation across many servers, the resource can grow with demand while remaining economical at every size.
 
 ## Architecture
-* NameNode:
+* **NameNode**:
     * maintain the **namespace tree** and mapping of file blocks(phyiscal address) to DataNodes.
     * namesapce is a hierarchy of files and directories, and is stored in **RAM**.
     * Files and directories are represented by *Inode*, which record permission, modification and access time.
 
-* DataNode:
+* **DataNode**:
   * Two files: one store **application data** and another one store **metadata**.
   * File content is split into large blocks and each block is replicated at multiple DataNodes.
   * Intially with no *namespace ID*, and able to join cluster and receive the cluster's *namespace ID*.
@@ -23,13 +23,13 @@
   * Each time DataNode connects to a NameNode, *namespace ID* and *software version* will be verified, DataNode will be shutting down if either of them match.
   * Send *Hearbeat message* periodically to NameNode to confirm that DataNode is operating.
   
-* HDFS Client:
-* User application that accesses file system.
-* Process of reading data:
-  1. Asks NameNode for list of DataNodes.
-  2. Connect to a DataNode and request the transfer of the desired block.
-  3. **Pipelines** data to the chosen DataNodes.
-  4. Confirm the creation of the block replicas to the NameNode.
+* **HDFS Client**:
+ * User application that accesses file system.
+ * Process of reading data:
+   1. Asks NameNode for list of DataNodes.
+   2. Connect to a DataNode and request the transfer of the desired block.
+   3. **Pipelines** data to the chosen DataNodes.
+   4. Confirm the creation of the block replicas to the NameNode.
   ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/hdfs/structure.png "Client writing data")
 
 ## Block Placement
