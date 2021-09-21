@@ -93,7 +93,7 @@ TSO guarantees that the sequence in which store, FLUSH, and atomic load-store in
   - 每个 read 的操作可被推迟，直到需要 read 的结果.
 * Example:
   1. *message passing*: 以下程序能否见到 *r1 = 1, r2 = 0*?
-  ```
+  ```c
   // Thread 1         // Thread 2
   x = 1                   r1 = y
   y = 1                   r2 = x
@@ -105,7 +105,7 @@ TSO guarantees that the sequence in which store, FLUSH, and atomic load-store in
   - 如果 thread 1 在向 thread 2 传递 *x=1* 的写操作之前先传递了 *y=1* 的写操作，并且 thread 2 在 2个写操作传递之间完成了，就会出现上述的结果.
 
   2. *load buffer*: 以下程序能否见到 *r1 = 0, r2 = 0*
-```
+```c
 // Thread 1         // Thread 2
 x = x                   y = 1
 r1 = y                 r2 = x
