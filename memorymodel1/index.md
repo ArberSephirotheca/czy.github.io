@@ -134,3 +134,5 @@ Adve 和 Hill 提出了一种 synchronization model: *data-race-free*, 假设了
   我们可以通过在中间加入一个 intermedaite thread 来解决这个问题.
 
 总而言之, Adve 和 Hill 通过 *data-race-free* 提出 *weaking ordering* 就像是软件和硬件之间的协议. 为了防止 data-race 的产生，硬件通过一系列的限制来使得软件的执行结果跟遵循了Sequential Order后的执行是一模一样的.
+
+*Reference:(Programming Language Memory Models)[https://research.swtch.com/hwmm]*
