@@ -3,13 +3,27 @@
         <title>所有文章 - Don&#39;t Panic</title>
         <link>https://arbersephirotheca.github.io/czy.github.io/posts/</link>
         <description>所有文章 | Don&#39;t Panic</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 05 Sep 2021 16:26:33 -0400</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 12 Sep 2021 16:53:30 -0400</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>TODO List</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/todolist/</link>
     <pubDate>Sat, 21 Aug 2021 23:36:28 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/todolist/</guid>
     <description><![CDATA[<p>TODO list</p>]]></description>
+</item><item>
+    <title>Hardware Memory Models</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/memorymodel1/</link>
+    <pubDate>Sun, 12 Sep 2021 16:53:30 -0400</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/memorymodel1/</guid>
+    <description><![CDATA[Introduction 假设我们有程序: 1 2 3 // Thread 1 // Thread2 x = 1; while(done == 0) done = 1; print(x); 如果 thread1 和 thread2 各自在自己的processor上运行。运行完成后，程序会输出0吗？ 输出的结果]]></description>
+</item><item>
+    <title>Runtime</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/runtime/</link>
+    <pubDate>Sun, 05 Sep 2021 22:06:53 -0400</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/runtime/</guid>
+    <description><![CDATA[<p><strong>Talks about Golang Runtime</strong></p>]]></description>
 </item><item>
     <title>Research Paper - HDFS</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/hdfs/</link>
@@ -61,23 +75,5 @@
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/mit6.824.2/</guid>
     <description><![CDATA[<p><strong>MIT 6.824 Lecture 2 Note</strong></p>]]></description>
-</item><item>
-    <title>Docker</title>
-    <link>https://arbersephirotheca.github.io/czy.github.io/docker/</link>
-    <pubDate>Fri, 23 Jul 2021 21:10:39 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://arbersephirotheca.github.io/czy.github.io/docker/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/docker/docker.png" referrerpolicy="no-referrer">
-            </div><p><strong>这篇文章讨论了Docker的原理和基础用法</strong></p>]]></description>
-</item><item>
-    <title>Redis</title>
-    <link>https://arbersephirotheca.github.io/czy.github.io/redis/</link>
-    <pubDate>Thu, 22 Apr 2021 17:04:33 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://arbersephirotheca.github.io/czy.github.io/redis/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://github.com/ArberSephirotheca/czy.github.io/raw/master/image/redis.png" referrerpolicy="no-referrer">
-            </div><p><strong>这篇文章讨论了redis的基础数据结构和特点</strong></p>]]></description>
 </item></channel>
 </rss>

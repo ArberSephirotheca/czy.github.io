@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Memory - 分类 - Don&#39;t Panic</title>
+        <link>https://arbersephirotheca.github.io/czy.github.io/categories/memory/</link>
+        <description>Memory - 分类 - Don&#39;t Panic</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 12 Sep 2021 16:53:30 -0400</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/categories/memory/" rel="self" type="application/rss+xml" /><item>
+    <title>Hardware Memory Models</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/memorymodel1/</link>
+    <pubDate>Sun, 12 Sep 2021 16:53:30 -0400</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/memorymodel1/</guid>
+    <description><![CDATA[Introduction 假设我们有程序: 1 2 3 // Thread 1 // Thread2 x = 1; while(done == 0) done = 1; print(x); 如果 thread1 和 thread2 各自在自己的processor上运行。运行完成后，程序会输出0吗？ 输出的结果]]></description>
+</item></channel>
+</rss>
