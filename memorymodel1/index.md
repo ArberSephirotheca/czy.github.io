@@ -1,5 +1,7 @@
 # Hardware Memory Models
 
+**Memory Model Part1**
+<!--more-->
 ## Introduction
 * 假设我们有程序:
   ```c
@@ -17,7 +19,7 @@
 * 本篇主要讨论的是 *hardware* 的 *memory model*.
 
 ## Sequential Consistency
-* *Lesile Lamport* 曾提出了一个概念， *sequential consistency*:
+* *Lesile Lamport* 曾提出了一个概念 *sequential consistency*:
   - 每个线程内部的指令都是按照程序规定的顺序
   - 线程执行的交错顺序可以是任意的，但是所有线程所看见的整个程序的总体执行顺序都是一样的.
 * SC的实现模型之一:
@@ -124,7 +126,7 @@ Adve 和 Hill 提出了一种 synchronization model: *data-race-free*, 假设了
   ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-2.png "Data-Race Before Synchronization")
   上面的图片中，我们无法保证两个写作操的顺序.
   ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-3.png "Data-Race After Synchronization")
-  通过 synchronization variable *a* 我们可以强制使得写操作遵循顺序.
+  通过 synchronization variable *a* 我们可以强制使得写操作遵循某种顺序.
 
   ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-4.png "Data-Race Before Assigns a Intermediate Thread")
   上面的图片中，即使使用了 synchronization variablel, 也无法消除读操作产生的 race condition.

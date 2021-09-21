@@ -18,7 +18,7 @@
     <pubDate>Sun, 12 Sep 2021 16:53:30 -0400</pubDate>
     <author>作者</author>
     <guid>https://arbersephirotheca.github.io/czy.github.io/memorymodel1/</guid>
-    <description><![CDATA[Introduction 假设我们有程序: 1 2 3 // Thread 1 // Thread2 x = 1; while(done == 0) done = 1; print(x); 如果 thread1 和 thread2 各自在自己的processor上运行。运行完成后，程序会输出0吗？ 输出的结果]]></description>
+    <description><![CDATA[<p><strong>Memory Model Part1</strong></p>]]></description>
 </item><item>
     <title>Runtime</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/runtime/</link>

@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Hardware Memory Models - Don&#39;t Panic</title><meta name="Description" content="CZY&#39;s Blog"><meta property="og:title" content="Hardware Memory Models" />
-<meta property="og:description" content="Introduction 假设我们有程序: 1 2 3 // Thread 1 // Thread2 x = 1; while(done == 0) done = 1; print(x); 如果 thread1 和 thread2 各自在自己的processor上运行。运行完成后，程序会输出0吗？ 输出的结果" />
+<meta property="og:description" content="Memory Model Part1" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://arbersephirotheca.github.io/czy.github.io/memorymodel1/" /><meta property="og:image" content="https://arbersephirotheca.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-09-12T16:53:30-04:00" />
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://arbersephirotheca.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Hardware Memory Models"/>
-<meta name="twitter:description" content="Introduction 假设我们有程序: 1 2 3 // Thread 1 // Thread2 x = 1; while(done == 0) done = 1; print(x); 如果 thread1 和 thread2 各自在自己的processor上运行。运行完成后，程序会输出0吗？ 输出的结果"/>
+<meta name="twitter:description" content="Memory Model Part1"/>
 <meta name="application-name" content="CZY">
 <meta name="apple-mobile-web-app-title" content="CZY"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="static/safari-pinned-tab.svg"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://arbersephirotheca.github.io/czy.github.io/memorymodel1/" /><link rel="prev" href="https://arbersephirotheca.github.io/czy.github.io/runtime/" /><link rel="next" href="https://arbersephirotheca.github.io/czy.github.io/todolist/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
     {
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/memorymodel1\/"
-        },"genre": "posts","keywords": "Memory Model","wordcount":  1703 ,
+        },"genre": "posts","keywords": "Memory Model","wordcount":  1707 ,
         "url": "https:\/\/arbersephirotheca.github.io\/czy.github.io\/memorymodel1\/","datePublished": "2021-09-12T16:53:30-04:00","dateModified": "2021-09-12T16:53:30-04:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -104,7 +104,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Hardware Memory Models</h1><h2 class="single-subtitle">Memory Models, Part 1</h2><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>CZY</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/memory/"><i class="far fa-folder fa-fw"></i>Memory</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-12">2021-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1703 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-12">2021-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1707 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -120,7 +120,8 @@
     <li><a href="#weak-ordering-and-data-race-free-sequential-consistency">Weak Ordering and Data-Race-Free Sequential Consistency</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+            </div><div class="content" id="content"><p><strong>Memory Model Part1</strong></p>
+<h2 id="introduction">Introduction</h2>
 <ul>
 <li>假设我们有程序:
 <div class="highlight"><div class="chroma">
@@ -150,7 +151,7 @@
 </ul>
 <h2 id="sequential-consistency">Sequential Consistency</h2>
 <ul>
-<li><em>Lesile Lamport</em> 曾提出了一个概念， <em>sequential consistency</em>:
+<li><em>Lesile Lamport</em> 曾提出了一个概念 <em>sequential consistency</em>:
 <ul>
 <li>每个线程内部的指令都是按照程序规定的顺序</li>
 <li>线程执行的交错顺序可以是任意的，但是所有线程所看见的整个程序的总体执行顺序都是一样的.</li>
@@ -428,7 +429,7 @@ r1 = y                 r2 = x
             alt="https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-3.png" />
     </a><figcaption class="image-caption">Data-Race After Synchronization</figcaption>
     </figure>
-通过 synchronization variable <em>a</em> 我们可以强制使得写操作遵循顺序.</p>
+通过 synchronization variable <em>a</em> 我们可以强制使得写操作遵循某种顺序.</p>
 <p><figure><a class="lightgallery" href="https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-4.png" title="Alt text" data-thumbnail="https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-4.png" data-sub-html="<h2>Data-Race Before Assigns a Intermediate Thread</h2><p>Alt text</p>">
         <img
             class="lazyload"
@@ -451,8 +452,7 @@ r1 = y                 r2 = x
     </a><figcaption class="image-caption">Data-Race After Assigns a Intermediate Thread</figcaption>
     </figure>
 我们可以通过在中间加入一个 intermedaite thread 来解决这个问题.</p>
-<p>总而言之, Adve 和 Hill 通过 <em>data-race-free</em> 提出 <em>weaking ordering</em> 就像是软件和硬件之间的协议. 为了防止 data-race 的产生，硬件通过一系列的限制来使得软件的执行结果跟遵循了Sequential Order后的执行是一模一样的.</p>
-</div><div class="post-footer" id="post-footer">
+<p>总而言之, Adve 和 Hill 通过 <em>data-race-free</em> 提出 <em>weaking ordering</em> 就像是软件和硬件之间的协议. 为了防止 data-race 的产生，硬件通过一系列的限制来使得软件的执行结果跟遵循了Sequential Order后的执行是一模一样的.</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
