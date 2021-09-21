@@ -30,7 +30,7 @@
 ## x86 Total Store Order
   ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-tso.png "x86-TSO")
 **什么是TSO?**:
-TSO guarantees that the sequence in which store, FLUSH, and atomic load-store instructions appear in memory for a given processor is identical to the sequence in which they were issued by the processor.
+* TSO guarantees that the sequence in which store, FLUSH, and atomic load-store instructions appear in memory for a given processor is identical to the sequence in which they  were issued by the processor.
 
 **x86如何实现TSO?**:
 * 所有 processors 都连接到同一个 shared memory中.
