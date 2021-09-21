@@ -112,12 +112,23 @@ r1 = y                 r2 = x
   - TSO: yes
   - ARM: yes
   
-  - 如果对 *x* 和 *y* 的写操作储存到了 local memory, 但并没有传递到其他 processor 上，就会出现上述结果
+  - 如果对 *x* 和 *y* 的写操作储存到了 local memory, 但并没有传递到其他 processor 上，就会出现上述结果.
 
 
 ## Weak Ordering and Data-Race-Free Sequential Consistency
-What is Weak ordering?:
+**什么是 Weak ordering?**:
   - Let a synchronization model be a set of constraints on memory accesses that specify how and when synchronization needs to be done.
   - Hardware is weakly ordered with respect to a synchronization model if and only if it appears sequentially consistent to all software that obey the synchronization model.
 
-总而言之, weaking ordering 就像是软件和硬件之间的协议. 为了防止 data-race 的产生，硬件通过一系列的限制来使得软件的执行结果跟遵循了Sequential Order后的执行是一模一样的.
+Adve 和 Hill 提出了一种 synchronization model: *data-race-free*, 假设了 hardware 中除了写操作和读操作, 还有 synchronization operations 用于对 write 和 read 重新排序，从而达到顺序一致性.
+  ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-2.png "Data-Race Before Synchronization")
+  上面的图片中，我们无法保证两个写作操的顺序.
+  ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-3.png "Data-Race After Synchronization")
+  通过 synchronization variable *a* 我们可以强制使得写操作遵循顺序.
+
+  ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-4.png "Data-Race Before Assigns a Intermediate Thread")
+  上面的图片中，即使使用了 synchronization variablel, 也无法消除读操作产生的 race condition.
+  ![Alt text](https://github.com/ArberSephirotheca/czy.github.io/raw/master/memorymodel1/mem-adve-5.png "Data-Race After Assigns a Intermediate Thread")
+  我们可以通过在中间加入一个 intermedaite thread 来解决这个问题.
+
+总而言之, Adve 和 Hill 通过 *data-race-free* 提出 *weaking ordering* 就像是软件和硬件之间的协议. 为了防止 data-race 的产生，硬件通过一系列的限制来使得软件的执行结果跟遵循了Sequential Order后的执行是一模一样的.
