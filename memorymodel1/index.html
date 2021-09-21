@@ -118,6 +118,7 @@
     <li><a href="#x86-total-store-order">x86 Total Store Order</a></li>
     <li><a href="#armpower-relaxed-memory-model">ARM/POWER Relaxed Memory Model</a></li>
     <li><a href="#weak-ordering-and-data-race-free-sequential-consistency">Weak Ordering and Data-Race-Free Sequential Consistency</a></li>
+    <li><a href="#reference">Reference</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p><strong>Memory Model Part1</strong></p>
@@ -455,7 +456,8 @@
     </figure>
 我们可以通过在中间加入一个 intermedaite thread 来解决这个问题.</p>
 <p>总而言之, Adve 和 Hill 通过 <em>data-race-free</em> 提出 <em>weaking ordering</em> 就像是软件和硬件之间的协议. 为了防止 data-race 的产生，硬件通过一系列的限制来使得软件的执行结果跟遵循了Sequential Order后的执行是一模一样的.</p>
-<p><em>Reference: <a href="https://research.swtch.com/hwmm" target="_blank" rel="noopener noreffer">Hardware Memory Models</a></em></p></div><div class="post-footer" id="post-footer">
+<h2 id="reference">Reference</h2>
+<p><a href="https://research.swtch.com/hwmm" target="_blank" rel="noopener noreffer">Hardware Memory Models</a>*</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
