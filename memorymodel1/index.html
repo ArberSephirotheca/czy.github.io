@@ -299,7 +299,7 @@ TSO guarantees that the sequence in which store, FLUSH, and atomic load-store in
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="c1">// Thread 1   // Thread 2    // Thread 3    // Thread 4
 </span><span class="c1"></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>             <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>              <span class="n">r1</span> <span class="o">=</span> <span class="n">x</span>           <span class="n">r3</span> <span class="o">=</span> <span class="n">y</span>
-                                            <span class="n">r2</span> <span class="o">=</span> <span class="n">y</span>          <span class="n">r4</span> <span class="o">=</span> <span class="n">x</span>
+                                           <span class="n">r2</span> <span class="o">=</span> <span class="n">y</span>           <span class="n">r4</span> <span class="o">=</span> <span class="n">x</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>

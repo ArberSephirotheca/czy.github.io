@@ -78,7 +78,7 @@ TSO guarantees that the sequence in which store, FLUSH, and atomic load-store in
   ```c
   // Thread 1   // Thread 2    // Thread 3    // Thread 4
   x = 1             y = 1              r1 = x           r3 = y
-                                              r2 = y          r4 = x
+                                             r2 = y           r4 = x
   ```
   - SC: no
   - TSO: no
