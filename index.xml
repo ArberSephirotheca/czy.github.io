@@ -3,7 +3,7 @@
         <title>Don&#39;t Panic</title>
         <link>https://arbersephirotheca.github.io/czy.github.io/</link>
         <description>CZY&#39;s Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 12 Sep 2021 16:53:30 -0400</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 22 Dec 2021 19:15:46 -0500</lastBuildDate>
             <atom:link href="https://arbersephirotheca.github.io/czy.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>TODO List</title>
@@ -13,26 +13,27 @@
     <guid>https://arbersephirotheca.github.io/czy.github.io/todolist/</guid>
     <description><![CDATA[<p>TODO list</p>]]></description>
 </item><item>
-    <title>Hardware Memory Models</title>
-    <link>https://arbersephirotheca.github.io/czy.github.io/memorymodel1/</link>
-    <pubDate>Sun, 12 Sep 2021 16:53:30 -0400</pubDate>
+    <title>Knuth-Morris-Pratt Algorithm</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/knuth-morris-pratt_algorithm/</link>
+    <pubDate>Wed, 22 Dec 2021 19:15:46 -0500</pubDate>
     <author>作者</author>
-    <guid>https://arbersephirotheca.github.io/czy.github.io/memorymodel1/</guid>
-    <description><![CDATA[<p><strong>Memory Model Part1</strong></p>]]></description>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/knuth-morris-pratt_algorithm/</guid>
+    <description><![CDATA[Usage  a string-searching algorithm searches for occurences of a &ldquo;word&rdquo; W within a &ldquo;text string&rdquo; S ususally used in string pattern search  Pseudocode 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  let j = 0(position of current character in S) let k = 0(position of current character in W) let nP = 0 while j &lt; length(S) do: if W[k] = S[j] then: let j = j + 1 let k = k + 1 if k = length(W) then: (occurence found, if only first occurence is needed, m = j - k may be return here) let P[nP] = j - k, nP = npP + 1 let k = T[k] else: let k = T[k] if k &lt; 0 then: let j = j + 1 let k = k + 1   ]]></description>
 </item><item>
-    <title>Runtime</title>
-    <link>https://arbersephirotheca.github.io/czy.github.io/runtime/</link>
-    <pubDate>Sun, 05 Sep 2021 22:06:53 -0400</pubDate>
+    <title>Asynchronous Model vs Synchronous Model</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/system_model/</link>
+    <pubDate>Tue, 26 Oct 2021 14:01:53 -0400</pubDate>
     <author>作者</author>
-    <guid>https://arbersephirotheca.github.io/czy.github.io/runtime/</guid>
-    <description><![CDATA[<p><strong>Talks about Golang Runtime</strong></p>]]></description>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/system_model/</guid>
+    <description><![CDATA[Synchronous Distributed System Lots of assumptions  Upper Bound on Message Delivery  There exists a upper bound on message delay   Ordered Message Delivery  communication between machines are expected to be FIFIO.   Globally Synchronous Clocks  Each node has a local clock, and the clocks of all nodes are always in sync with each other.    Asynchronous Distributed System  No Upper Bound Time Limit  Message can be delayed for arbitrary amount of times.]]></description>
 </item><item>
-    <title>Research Paper - HDFS</title>
-    <link>https://arbersephirotheca.github.io/czy.github.io/hdfs/</link>
-    <pubDate>Sun, 05 Sep 2021 16:26:33 -0400</pubDate>
+    <title>Volcano Model</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/volcano_model/</link>
+    <pubDate>Tue, 26 Oct 2021 12:15:57 -0400</pubDate>
     <author>作者</author>
-    <guid>https://arbersephirotheca.github.io/czy.github.io/hdfs/</guid>
-    <description><![CDATA[<p><strong>Discuss HDFS research paper</strong></p>]]></description>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/volcano_model/</guid>
+    <description><![CDATA[What is a Volcano Model? A chain of iterators and data flows through them when to topmost iterator calls next() on the iterator below it.
+Disadvantage  Instruction Cache Miss  Two Solutions Vectorized Queries    ]]></description>
 </item><item>
     <title>Research Paper - Raft</title>
     <link>https://arbersephirotheca.github.io/czy.github.io/raft/</link>

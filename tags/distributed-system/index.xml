@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Distributed System - 标签 - Don&#39;t Panic</title>
+        <link>https://arbersephirotheca.github.io/czy.github.io/tags/distributed-system/</link>
+        <description>Distributed System - 标签 - Don&#39;t Panic</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 26 Oct 2021 14:01:53 -0400</lastBuildDate><atom:link href="https://arbersephirotheca.github.io/czy.github.io/tags/distributed-system/" rel="self" type="application/rss+xml" /><item>
+    <title>Asynchronous Model vs Synchronous Model</title>
+    <link>https://arbersephirotheca.github.io/czy.github.io/system_model/</link>
+    <pubDate>Tue, 26 Oct 2021 14:01:53 -0400</pubDate>
+    <author>作者</author>
+    <guid>https://arbersephirotheca.github.io/czy.github.io/system_model/</guid>
+    <description><![CDATA[Synchronous Distributed System Lots of assumptions  Upper Bound on Message Delivery  There exists a upper bound on message delay   Ordered Message Delivery  communication between machines are expected to be FIFIO.   Globally Synchronous Clocks  Each node has a local clock, and the clocks of all nodes are always in sync with each other.    Asynchronous Distributed System  No Upper Bound Time Limit  Message can be delayed for arbitrary amount of times.]]></description>
+</item></channel>
+</rss>
